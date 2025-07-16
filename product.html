@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Advanced & Professional Products Section -->
+    <section class="products-category" style="margin-top: 0px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>PRODUCT <span>LINE</span></h3>
+                </div>
+                <div class="col-md-12">
+                    <div class="gallery-wrap wrap-effect-1">
+                        <div class="item">
+                            <a href="https://www.jindalstainless.com/products/stainless-steel-slabs/">
+                                <img src="https://www.jindalstainless.com/wp-content/uploads/2020/09/slabs-product-img.jpg" alt="Stainless Steel slabs at Jindal Stainless plant" class="ow_img">
+                                <div class="ow_content">
+                                    <span class="xs_text ow_title">Slabs</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="https://www.jindalstainless.com/products/stainless-steel-blooms/">
+                                <img src="https://www.jindalstainless.com/wp-content/uploads/2020/09/Blooms-product-img.jpg" alt="Stainless Steel Blooms at Jindal Stainless plant" class="ow_img">
+                                <div class="ow_content">
+                                    <span class="xs_text ow_title">Blooms</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="https://www.jindalstainless.com/products/hot-rolled-stainless-steel-coils/">
+                                <img src="https://www.jindalstainless.com/wp-content/uploads/2020/09/HR-Coils-product-img.jpg" alt="Top benefits of stainless steel | Jindal Stainless" class="ow_img">
+                                <div class="ow_content">
+                                    <span class="xs_text ow_title">Hot Rolled (HR) Coils</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="https://www.jindalstainless.com/products/cold-rolled-stainless-steel-coils/">
+                                <img src="https://www.jindalstainless.com/wp-content/uploads/2020/09/CR-Coils-product-img.jpg" alt="Cold Rolled and finished stainless steel coils at a Jindal Stainless plant" class="ow_img">
+                                <div class="ow_content">
+                                    <span class="xs_text ow_title">Cold Rolled (CR) Coils</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="https://www.jindalstainless.com/products/stainless-steel-plates/">
+                                <img src="https://www.jindalstainless.com/wp-content/uploads/2020/09/Plates-product-img.jpg" alt="Stainless steel plates at Jindal Stainless factory" class="ow_img">
+                                <div class="ow_content">
+                                    <span class="xs_text ow_title">Plates</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="https://www.jindalstainless.com/products/specialty-stainless-steel-products/">
+                                <img src="https://www.jindalstainless.com/wp-content/uploads/2020/09/Special-product-img.jpg" alt="Stainless Steel Speciality Products at Jindal Stainless plant" class="ow_img">
+                                <div class="ow_content">
+                                    <span class="xs_text ow_title">Speciality Products</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+    .products-category {
+        background: #fff;
+        padding: 3rem 0 2rem 0;
+        position: relative;
+        z-index: 10;
+    }
+    .products-category h3 {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--primary-color, #2196f3);
+        margin-bottom: 2rem;
+        text-align: center;
+        letter-spacing: 0.03em;
+    }
+    .products-category h3 span {
+        color: var(--secondary-color, #9c27b0);
+    }
+    .gallery-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+        align-items: stretch;
+    }
+    .gallery-wrap .item {
+        background: #f7f9fc;
+        border-radius: 14px;
+        box-shadow: 0 2px 12px rgba(33,150,243,0.07);
+        overflow: hidden;
+        width: 240px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+    }
+    .gallery-wrap .item:hover {
+        background: var(--secondary-color, #9c27b0);
+        transform: translateY(-6px) scale(1.04);
+        box-shadow: 0 6px 24px rgba(33,150,243,0.13);
+    }
+    .gallery-wrap .item a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
+    }
+    .gallery-wrap .ow_img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        transition: transform 0.18s;
+    }
+    .gallery-wrap .item:hover .ow_img {
+        transform: scale(1.06) rotate(-2deg);
+    }
+    .ow_content {
+        padding: 1rem 0.5rem 1.2rem 0.5rem;
+        text-align: center;
+    }
+    .ow_title {
+        font-size: 1.13rem;
+        color: var(--primary-color, #2196f3);
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        display: block;
+        transition: color 0.18s;
+    }
+    .gallery-wrap .item:hover .ow_title {
+        color: #fff;
+    }
+    @media (max-width: 1200px) {
+        .gallery-wrap { gap: 1.2rem; }
+        .gallery-wrap .item { width: 200px; }
+    }
+    @media (max-width: 900px) {
+        .gallery-wrap { gap: 1rem; }
+        .gallery-wrap .item { width: 45vw; min-width: 160px; }
+    }
+    @media (max-width: 600px) {
+        .products-category { padding: 1.5rem 0 1rem 0; }
+        .products-category h3 { font-size: 1.3rem; }
+        .gallery-wrap { flex-direction: column; gap: 0.7rem; }
+        .gallery-wrap .item { width: 100%; min-width: 0; }
+        .gallery-wrap .ow_img { height: 110px; }
+    }
+    </style>
+  <!--  -->
+  
+</body>
+</html>

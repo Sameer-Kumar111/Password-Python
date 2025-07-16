@@ -1,0 +1,2229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  	<link rel="shortcut icon" href="https://property.jll.com.hk/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&amp;display=swap" rel="stylesheet">
+	<script src="https://connect.facebook.net/signals/config/1574492836182509?v=2.9.214&amp;r=stable&amp;domain=discover.jll.com&amp;hme=3a8008a6f0cd88c861b1cd2bda7f70b9072223018277cd4c0254ee4884c65e05&amp;ex_m=83%2C141%2C124%2C17%2C117%2C58%2C39%2C118%2C64%2C57%2C129%2C72%2C12%2C82%2C25%2C112%2C103%2C62%2C65%2C111%2C128%2C91%2C131%2C7%2C3%2C4%2C6%2C5%2C2%2C73%2C81%2C132%2C203%2C153%2C52%2C208%2C205%2C206%2C44%2C166%2C24%2C61%2C212%2C211%2C155%2C27%2C51%2C8%2C54%2C77%2C78%2C79%2C84%2C107%2C26%2C23%2C110%2C106%2C105%2C125%2C63%2C127%2C49%2C126%2C40%2C108%2C50%2C100%2C11%2C36%2C194%2C196%2C163%2C20%2C21%2C22%2C14%2C15%2C35%2C32%2C33%2C68%2C74%2C76%2C89%2C116%2C119%2C37%2C90%2C18%2C16%2C94%2C59%2C30%2C121%2C120%2C122%2C113%2C19%2C29%2C48%2C88%2C28%2C176%2C149%2C86%2C109%2C67%2C98%2C43%2C38%2C96%2C97%2C102%2C47%2C13%2C104%2C95%2C55%2C42%2C45%2C0%2C80%2C130%2C1%2C101%2C10%2C99%2C252%2C192%2C139%2C179%2C172%2C9%2C46%2C75%2C53%2C123%2C56%2C93%2C71%2C70%2C41%2C114%2C69%2C66%2C60%2C92%2C85%2C34%2C115%2C31%2C87%2C133" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script type="text/javascript" async="" src="https://snap.licdn.com/li.lms-analytics/insight.min.js"></script><script async="" src="https://play.vidyard.com/embed/v4.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://Images.discover.jll.com/Web/JLL/{670bafe0-b7e1-4799-8e1d-e956943274fc}_splide-core.min.css">
+      <link rel="stylesheet" href="tag.css">
+      <script>
+		let bodyRect = document.body.getBoundingClientRect(),
+			topB = document.getElementById("page-top"), topHeight = topB.getBoundingClientRect().height;
+
+
+		function inIframe() {
+			try {
+				return window.self !== window.top;
+			} catch (e) {
+				return true;
+			}
+		}
+
+		function scrollToTop(offset) {
+			window.scrollTo({
+				top: offset || 0,
+				left: 0,
+				behavior: 'smooth'
+			});
+		}
+
+		function moveToSection(ev, href) {
+			ev.preventDefault();
+			let id = '';
+
+			if (href) {
+				scrollToTop();
+				let hash = href.substring(href.indexOf("#")+1);
+				if (hash.indexOf("&") > 0 ) {
+					hash = hash.slice(0, hash.indexOf("&"));
+				}
+				if (hash.indexOf("?") > 0 ) {
+					hash = hash.slice(0, hash.indexOf("?"));
+				}
+				id = hash;
+				history.pushState("", document.title, window.location.pathname);
+			} else if (ev.target) {
+				let trg = (ev.target.tagName.toLowerCase() === "a") ? ev.target : ev.target.closest("a");
+				id = trg.href.substring(trg.href.indexOf("#")+1);
+				trg.blur();
+			}
+
+			let offset = 0;
+			if ( document.body.contains(document.getElementById(id)) ) {
+				let elemRect = document.getElementById(id).getBoundingClientRect();
+				offset = elemRect.top - bodyRect.top - topHeight;
+			}
+			scrollToTop(offset);
+		}
+
+		function reCalcPos() {
+			bodyRect = document.body.getBoundingClientRect();
+		}
+
+		function createElementFromHTML(tag,htmlString,classNames) {
+			let elem = document.createElement(tag);
+			if (classNames != undefined) {
+				elem.className += classNames;
+			}
+			elem.innerHTML = htmlString.trim();
+			return elem;
+		}
+
+		function runAfterLoad() {
+			if (window.location.href.indexOf("#")>-1) {
+				moveToSection(event, window.location.href);
+			}
+
+			if (inIframe() == false) {
+				document.body.classList.remove("edit");
+				document.querySelectorAll(".nav-link").forEach((el) => {
+					el.addEventListener('click', moveToSection);
+				});
+
+				let _s = "";
+
+				if ( document.body.contains(document.getElementById("feat").querySelector(".splide")) ) {
+					let splide = new Splide(document.querySelector('#feat .splide'), {
+						type: 'loop',
+						drag: true,
+						snap: true,
+						arrows: true,
+						pagination: true,
+						perPage: 1,
+						focus: 0
+					});
+
+					splide.on('ready', function () {
+						if ( document.querySelectorAll(".splide__list .splide__slide:not([class*=clone])").length == 1 ) {
+							splide.options = { drag: false };
+							document.querySelector(".splide__arrows").remove();
+						}
+					});
+
+					splide.mount();
+				}
+
+				if (document.querySelectorAll(".section.b-video").length > 0) {
+					let acctId ='';
+
+					function loadScript(url, callback) {
+						let script = document.createElement('script');
+						script.async = true;
+						script.src = url;
+
+						script.onload = function() {
+							if (callback) {
+								callback();
+							}
+						};
+						document.body.appendChild(script);
+					}
+
+					document.querySelectorAll(".section.b-video").forEach( (s) => {
+						const vjs = s.querySelector(".image video-js");
+						acctId = s.querySelector(".acct-id").innerText.trim();
+						vjs.dataset.account = acctId;
+						vjs.dataset.videoId = s.querySelector(".vid-id").innerText.trim();
+					});
+
+					let _src = 'https://players.brightcove.net/' + acctId + '/default_default/index.min.js';
+
+					loadScript(_src, function() {
+						document.querySelectorAll("video-js[data-account='" + acctId + "']").forEach( (v) => {
+							v.querySelector(".vjs-big-play-button").addEventListener('click', function() {
+								v.querySelector(".vjs-big-play-button").remove();
+								v.classList.add('clicked');
+							});
+						});
+					});
+				}
+
+				function updateForm() {
+					if ( document.body.contains(document.getElementById("c-form")) ) {
+						const _page_2 = document.getElementById("form-step-2");
+						_page_2.style.display = 'none';
+
+						const
+							_form = document.querySelector("form.elq-form"),
+							_page_1 = document.getElementById("form-step-1"),
+							_optin = document.querySelector("[name=optIn]") || null,
+							_lab = _optin ? document.querySelector("[for="+_optin.id+"]") : '',
+							_def = _lab ? _lab.innerText : '',
+							_goi = document.getElementById('goi').innerHTML.replaceAll('"','\''),
+							_ag1 = document.getElementById('ag1').innerHTML.replaceAll('"','\''),
+							_ag2 = document.getElementById('ag2').innerHTML.replaceAll('"','\''),
+							_a1 = "<div class='layout-col col-sm-12 col-xs-12'><div class='form-element-layout row'><div class='single-checkbox-row'><input type='checkbox' value='on' name='readAndAgreed' id='readAndAgreed'><label class='checkbox-aligned elq-item-label' for='readAndAgreed'>" + _ag1 + "</label></div><span class='LV_validation_message LV_invalid'>This field is required</span></div></div>",
+							_a2 = "<div class='layout-col col-sm-12 col-xs-12'><div class='form-element-layout row'><div class='single-checkbox-row'><input type='checkbox' value='on' name='agreedToCrossBorderTransfer' id='agreedToCrossBorderTransfer'><label class='checkbox-aligned elq-item-label' for='agreedToCrossBorderTransfer'>" + _ag2 + "</label></div><span class='LV_validation_message LV_invalid'>This field is required</span></div></div>",
+							_lastRow = (!!_form.querySelector("#elq-FormLastRow") ? _form.querySelector("#elq-FormLastRow") : document.querySelector(".elq-form input[type=submit]").closest(".grid-layout-col").parentNode ),
+							_parentC = _lastRow.parentNode;
+
+						_form.target = 'hiddenFrame';
+
+						if (!!document.querySelector("[name=readAndAgreed]")){ document.querySelector("[name=readAndAgreed]").remove(); }
+						if (!!document.querySelector("[name=agreedToCrossBorderTransfer]")){ document.querySelector("[name=agreedToCrossBorderTransfer]").remove(); }
+						if ((_s == 'Single Opt-in' || _s == 'Double Opt-in') && !!_optin) { _optin.checked = true; }
+
+						_parentC.insertBefore(createElementFromHTML('div',_a1,'row china'),_lastRow);
+						let _a1b = document.querySelector("[name=readAndAgreed]");
+						_a1b.addEventListener('change', function(e) {
+							if (this.checked) {
+								this.parentNode.nextElementSibling.style.display = 'none';
+								this.classList.remove('LV_invalid_field');
+							} else {
+								this.classList.add('LV_invalid_field');
+								this.parentNode.nextElementSibling.style.display = 'block';
+							}
+						});
+
+						_parentC.insertBefore(createElementFromHTML('div',_a2,'row china'),_lastRow);
+						let _a2b = document.querySelector("[name=agreedToCrossBorderTransfer]");
+						_a2b.addEventListener('change', function(e) {
+							if (this.checked) {
+								this.parentNode.nextElementSibling.style.display = 'none';
+								this.classList.remove('LV_invalid_field');
+							} else {
+								this.classList.add('LV_invalid_field');
+								this.parentNode.nextElementSibling.style.display = 'block';
+							}
+						});
+
+						if (!!document.querySelector("[name=country]")) {
+
+							document.querySelector("[name=country]").addEventListener('change', function(e) {
+								if (this.value == 'CN' || this.value == 'China') {
+									document.querySelectorAll(".elq-form .row.china").forEach( (el) => {
+										el.style.display = 'block';
+									});
+
+									if (!_a1b.checked) {
+										_a1b.classList.add('LV_invalid_field');
+										_a1b.parentNode.nextElementSibling.style.display = 'block';
+									} else {
+										_a1b.parentNode.nextElementSibling.style.display = 'none';
+										_a1b.classList.remove('LV_invalid_field');
+									}
+									if (!_a2b.checked) {
+										_a2b.classList.add('LV_invalid_field');
+										_a2b.parentNode.nextElementSibling.style.display = 'block';
+									} else {
+										_a2b.parentNode.nextElementSibling.style.display = 'none';
+										_a2b.classList.remove('LV_invalid_field');
+									}
+								} else {
+									document.querySelectorAll(".elq-form .row.china").forEach( (el) => {
+										el.style.display = 'none';
+									});
+								}
+
+								if (!!_optin) {
+									if (this.value == 'DE' || this.value == 'Germany') {
+										_lab.innerHTML = _goi;
+									} else {
+										_lab.innerText = _def;
+									}
+								}
+							});
+						}
+
+						_form.addEventListener('submit', function(e) {
+							e.preventDefault();
+							let sbmBtn = _form.querySelector('input[type=submit]'), spin = sbmBtn.nextElementSibling;
+							if (!!spin) {
+								spin.remove();
+							}
+							sbmBtn.removeAttribute('disabled');
+							sbmBtn.style.cursor = 'default';
+
+							let isFormValid = true;
+							for (var i = 0; i < e.target.elements.length; i++) {
+								var elem = e.target.elements[i];
+								var id = elem.getAttribute('id');
+								if (id && typeof window[id] != 'undefined' && window[id] instanceof LiveValidation) {
+									isFormValid = window[id].validate();
+									if(!isFormValid){
+										break;
+									}
+								}
+							}
+							if(isFormValid){
+								if (!!document.querySelector("[name=country]") && (document.querySelector("[name=country]").value == 'CN' || document.querySelector("[name=country]").value == 'China') ) {
+									if (_a1b.checked && _a2b.checked) {
+										_form.submit();
+										_page_1.style.display = 'none';
+										_page_2.style.display = 'block';
+									} else {
+										document.querySelector("[name=country]").dispatchEvent(new Event('change'));
+									}
+								} else {
+									_form.submit();
+									_page_1.style.display = 'none';
+									_page_2.style.display = 'block';
+								}
+							}
+						}, false);
+					}
+				}
+				updateForm();
+			}
+			window.onscroll = reCalcPos;
+		}
+
+		function ready(fn) {
+			if (document.readyState != 'loading') {
+				fn();
+			} else if (document.addEventListener) {
+				document.addEventListener('DOMContentLoaded', fn);
+			} else {
+				document.attachEvent('onreadystatechange', function () {
+					if (document.readyState != 'loading')
+						fn();
+				});
+			}
+		}
+		ready(runAfterLoad);
+      
+      
+      
+                // Functionality testing
+      const firstNameInput = document.getElementById('fe60870');
+// Create a warning message element
+const warningMsg = document.createElement('span');
+warningMsg.textContent = "Numbers and special characters are not allowed in the first name field.";
+warningMsg.style.color = "red";
+warningMsg.style.fontWeight = "bold";
+warningMsg.style.fontSize = "12px";
+warningMsg.style.display = "none"; // Initially hidden
+warningMsg.id = "firstNameWarning";
+// Insert warning message after the input element
+firstNameInput.insertAdjacentElement('afterend', warningMsg);
+firstNameInput.addEventListener('input', function(e) {
+  const originalValue = this.value;
+  let result = '';
+  let hasInvalidChars = false;
+  for (let i = 0; i < originalValue.length; i++) {
+    const char = originalValue[i];
+    if ((char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z')) {
+      result += char;
+    } else {
+      hasInvalidChars = true;
+    }
+  }
+  this.value = result;
+  // Show or hide warning message
+  if (hasInvalidChars) {
+    warningMsg.style.display = "block"; // Show warning
+    // Optional: Hide the warning after a few seconds
+    setTimeout(function() {
+      warningMsg.style.display = "none";
+    }, 3000); // Hide after 3 seconds
+  }
+});
+const lastNameInput = document.getElementById('fe60871');
+// Create a warning message element for last name
+const lastNameWarning = document.createElement('span');
+lastNameWarning.textContent = "Numbers and special characters are not allowed in the last name field.";
+lastNameWarning.style.color = "red";
+lastNameWarning.style.fontSize = "12px";
+lastNameWarning.style.fontWeight = "bold";
+lastNameWarning.style.display = "none"; // Initially hidden
+lastNameWarning.id = "lastNameWarning";
+// Insert warning message after the input element
+lastNameInput.insertAdjacentElement('afterend', lastNameWarning);
+lastNameInput.addEventListener('input', function(e) {
+  const originalValue = this.value;
+  let result = '';
+  let hasInvalidChars = false;
+  for (let i = 0; i < originalValue.length; i++) {
+    const char = originalValue[i];
+    if ((char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z')) {
+      result += char;
+    } else {
+      hasInvalidChars = true;
+    }
+  }
+  this.value = result;
+  // Show or hide warning message
+  if (hasInvalidChars) {
+    lastNameWarning.style.display = "block"; // Show warning
+    // Optional: Hide the warning after a few seconds
+    setTimeout(function() {
+      lastNameWarning.style.display = "none";
+    }, 3000); // Hide after 3 seconds
+  }
+});
+const businessPhoneInput = document.getElementById('fe60874');
+// Create a warning message element for phone number
+const phoneWarning = document.createElement('span');
+phoneWarning.textContent = "Enter the valid numbers only";
+phoneWarning.style.color = "red";
+phoneWarning.style.fontWeight = "bold";
+phoneWarning.style.fontSize = "12px";
+phoneWarning.style.display = "none"; // Initially hidden
+phoneWarning.id = "phoneWarning";
+// Insert warning message after the input element
+businessPhoneInput.insertAdjacentElement('afterend', phoneWarning);
+businessPhoneInput.addEventListener('input', function(e) {
+  const originalValue = this.value;
+  let result = '';
+  let hasInvalidChars = false;
+  for (let i = 0; i < originalValue.length; i++) {
+    const char = originalValue[i];
+    // Only allow digits (0-9)
+    if (char >= '0' && char <= '9') {
+      result += char;
+    } else {
+      hasInvalidChars = true;
+    }
+  }
+  // Check for length overflow
+  let isTooLong = false;
+  if (result.length > 15) {
+    result = result.substring(0, 15);
+    isTooLong = true;
+  }
+  this.value = result;
+  // Show or hide warning message
+  if (hasInvalidChars || isTooLong) {
+    // Update warning message based on the type of error
+    if (hasInvalidChars && isTooLong) {
+      phoneWarning.textContent = "Enter the valid numbers only";
+    } else if (hasInvalidChars) {
+      phoneWarning.textContent = "Enter the valid numbers only";
+    } else {
+      phoneWarning.textContent = "Phone number cannot exceed 15 digits.";
+    }
+    phoneWarning.style.display = "block"; // Show warning
+    // Optional: Hide the warning after a few seconds
+    setTimeout(function() {
+      phoneWarning.style.display = "none";
+    }, 3000); // Hide after 3 seconds
+  }
+});
+      
+	</script>
+    <script>_satellite["_runScript1"](function(event, target, Promise) {
+adobe.optIn.approve(adobe.OptInCategories.ECID, true);
+adobe.optIn.approve(adobe.OptInCategories.ANALYTICS,true);
+adobe.optIn.approve(adobe.OptInCategories.ADCLOUD,true);
+adobe.optIn.approve(adobe.OptInCategories.AAM,true);
+adobe.optIn.approve(adobe.OptInCategories.CAMPAIGN,true);
+adobe.optIn.approve(adobe.OptInCategories.LIVEFYRE,true);
+adobe.optIn.approve(adobe.OptInCategories.MEDIA_ANALYTICS,true);
+adobe.optIn.approve(adobe.OptInCategories.TARGET,true);
+adobe.optIn.complete();
+});</script>
+<script>_satellite["_runScript2"](function(event, target, Promise) {
+// Analytics object
+window.analytics = window.analytics || {};
+
+// Utility object
+window.analytics.utility = window.analytics.utility || {};
+
+window.analytics.utility.addEvent = function (element, evnt, funct)
+{
+    if (element.attachEvent)
+        return element.attachEvent('on' + evnt, funct);
+    else
+        return element.addEventListener(evnt, funct, false);
+};
+
+// get query string values
+// analytics.utility.getParameterByName
+window.analytics.utility.getParameterByName = function (name)
+{
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+};
+
+/**
+ * The ?analyticsDebug=on or ?analyticsDebug=off OR window.analytics.utility.setCookie("analyticsDebug", "on");
+ * 
+ * 
+ * @param {object | string | number} source - The source that need info
+ * @return {object | string | number} result - The concatenation string from the source array
+ **/
+window.analytics.utility.consoleLog = function (msg) {
+
+    var validLog = "off";
+
+    if (_satellite.getVar("Cookie - Analytics Debug") === "on")
+        validLog = "on";
+    else if (window.analytics.utility.getParameterByName("analyticsDebug").toLowerCase() === "on")
+    {
+        validLog = "on";
+        _satellite.cookie.set("analyticsDebug", "on");
+    }
+    else if (window.analytics.utility.getParameterByName("analyticsDebug").toLowerCase() === "off")
+    {
+        validLog = "off";
+        _satellite.cookie.set("analyticsDebug", "off");
+    }
+
+    if (validLog === "on")
+    {
+        if (typeof (console) !== "undefined" && typeof (console.log) !== "undefined")
+        {
+            if (typeof (msg) !== "undefined")
+                console.log(JSON.parse(JSON.stringify(msg))); // console.log(msg);
+            else
+                console.log("msg undefined");
+        }
+    }
+};
+
+// append value to a list
+window.analytics.utility.appendList = function (list, value, delimiter, unique_check_type)
+{
+    var m = 0;
+    if (typeof (list) === "undefined")
+        list = "";
+
+    if (unique_check_type)
+    {
+        var values_array = list.split(delimiter);
+        var values_aray_length = values_array.length;
+
+        for (var i = 0; i < values_aray_length; i++)
+        {
+            var item = values_array[i];
+            m = m || (unique_check_type == 1 ? (item == value) : (item.toLowerCase() == value.toLowerCase()));
+        }
+    }
+
+    if (!m)
+        list = list ? list + delimiter + value : value;
+
+    return list;
+};
+
+window.analytics.utility.getAnalyticsDataParameter = function (parentParameter, childParameter)
+{
+    var analyticsDataValue = "";
+
+    if (typeof (analytics) !== "undefined" && typeof (analytics.data) !== "undefined")
+    {
+        if (typeof (parentParameter) === "string" && typeof (analytics.data[parentParameter]) !== "undefined")
+        {
+            analyticsDataValue = analytics.data[parentParameter];
+
+            if (typeof (childParameter) === "string" && typeof (analytics.data[parentParameter][childParameter]) !== "undefined")
+            {
+                analyticsDataValue = analytics.data[parentParameter][childParameter];
+            }
+        }
+    }
+
+    return analyticsDataValue;
+};
+
+
+window.analytics.utility.getFilterValue = function (searchAction)
+{
+    var filterValue = "";
+    
+    if (typeof (searchAction) !== "undefined")
+    {
+        if (searchAction.type === "keyword")
+        {
+            if (typeof (searchAction.value) === "string")
+                filterValue = searchAction.value;
+        }
+        else
+        {
+            if (searchAction.type === "asset")
+            {
+                if (typeof (searchAction.value) === "string")
+                    filterValue = searchAction.value;
+            }
+
+            if (searchAction.type === "location")
+            {
+                if (typeof (searchAction.subtype) === "string")
+                    filterValue = searchAction.subtype;
+                else
+                    filterValue = "n/a";
+
+                if (typeof (searchAction.value) === "string")
+                    filterValue += ":" + searchAction.value;
+                else
+                    filterValue += ":n/a";
+            }
+
+        }
+    }
+    return filterValue;
+};
+
+
+// Analytics Custom track function
+window.analytics.utility.initDataLayer = function (obj)
+{
+    window.analytics.utility.consoleLog("/********************************************************************************/");
+    window.analytics.utility.consoleLog("analytics.utility.initDataLayer: ");
+    window.analytics.utility.consoleLog(obj);
+    window.analytics.utility.consoleLog("/********************************************************************************/");
+
+    if (typeof (obj) !== "undefined")
+    {
+        for (var property_name in obj)
+        {
+
+            window.analytics = window.analytics || {};
+            window.analytics.data = window.analytics.data || {};
+            if (typeof (window.analytics.data[property_name]) === "undefined" || property_name.match(/event|products|appliedCriteria/g) !== null)
+            {
+                window.analytics.data[property_name] = obj[property_name];
+            }
+            else
+            {
+                for (var sub_property_name in obj[property_name])
+                {
+                    if (typeof (obj[property_name][sub_property_name]) !== "undefined")
+                        window.analytics.data[property_name][sub_property_name] = obj[property_name][sub_property_name];
+
+                    // if (typeof (window.analytics.data[property_name][sub_property_name]) === "string")
+                    //   window.analytics.data[property_name][sub_property_name] = window.analytics.data[property_name][sub_property_name].toLowerCase();
+                }
+            }
+        }
+    }
+};
+
+// Analytics Custom track function
+window.analytics.track = function (obj)
+{
+    window.analytics.utility.consoleLog("/********************************************************************************/");
+    window.analytics.utility.consoleLog("window.analytics.track: ");
+    window.analytics.utility.consoleLog(JSON.parse(JSON.stringify(obj)));
+    window.analytics.utility.consoleLog("/********************************************************************************/");
+
+    window.analytics.utility.initDataLayer(obj);
+
+    if (typeof (obj.event) !== "undefined")
+    {
+        if (typeof (obj.event.name) !== "undefined")
+            _satellite.track(obj.event.name.toLowerCase());
+    }
+};
+});</script>
+<!--  -->
+<script>_satellite["_runScript2"](function(event, target, Promise) {
+// Analytics object
+window.analytics = window.analytics || {};
+
+// Utility object
+window.analytics.utility = window.analytics.utility || {};
+
+window.analytics.utility.addEvent = function (element, evnt, funct)
+{
+    if (element.attachEvent)
+        return element.attachEvent('on' + evnt, funct);
+    else
+        return element.addEventListener(evnt, funct, false);
+};
+
+// get query string values
+// analytics.utility.getParameterByName
+window.analytics.utility.getParameterByName = function (name)
+{
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+};
+
+/**
+ * The ?analyticsDebug=on or ?analyticsDebug=off OR window.analytics.utility.setCookie("analyticsDebug", "on");
+ * 
+ * 
+ * @param {object | string | number} source - The source that need info
+ * @return {object | string | number} result - The concatenation string from the source array
+ **/
+window.analytics.utility.consoleLog = function (msg) {
+
+    var validLog = "off";
+
+    if (_satellite.getVar("Cookie - Analytics Debug") === "on")
+        validLog = "on";
+    else if (window.analytics.utility.getParameterByName("analyticsDebug").toLowerCase() === "on")
+    {
+        validLog = "on";
+        _satellite.cookie.set("analyticsDebug", "on");
+    }
+    else if (window.analytics.utility.getParameterByName("analyticsDebug").toLowerCase() === "off")
+    {
+        validLog = "off";
+        _satellite.cookie.set("analyticsDebug", "off");
+    }
+
+    if (validLog === "on")
+    {
+        if (typeof (console) !== "undefined" && typeof (console.log) !== "undefined")
+        {
+            if (typeof (msg) !== "undefined")
+                console.log(JSON.parse(JSON.stringify(msg))); // console.log(msg);
+            else
+                console.log("msg undefined");
+        }
+    }
+};
+
+// append value to a list
+window.analytics.utility.appendList = function (list, value, delimiter, unique_check_type)
+{
+    var m = 0;
+    if (typeof (list) === "undefined")
+        list = "";
+
+    if (unique_check_type)
+    {
+        var values_array = list.split(delimiter);
+        var values_aray_length = values_array.length;
+
+        for (var i = 0; i < values_aray_length; i++)
+        {
+            var item = values_array[i];
+            m = m || (unique_check_type == 1 ? (item == value) : (item.toLowerCase() == value.toLowerCase()));
+        }
+    }
+
+    if (!m)
+        list = list ? list + delimiter + value : value;
+
+    return list;
+};
+
+window.analytics.utility.getAnalyticsDataParameter = function (parentParameter, childParameter)
+{
+    var analyticsDataValue = "";
+
+    if (typeof (analytics) !== "undefined" && typeof (analytics.data) !== "undefined")
+    {
+        if (typeof (parentParameter) === "string" && typeof (analytics.data[parentParameter]) !== "undefined")
+        {
+            analyticsDataValue = analytics.data[parentParameter];
+
+            if (typeof (childParameter) === "string" && typeof (analytics.data[parentParameter][childParameter]) !== "undefined")
+            {
+                analyticsDataValue = analytics.data[parentParameter][childParameter];
+            }
+        }
+    }
+
+    return analyticsDataValue;
+};
+
+
+window.analytics.utility.getFilterValue = function (searchAction)
+{
+    var filterValue = "";
+    
+    if (typeof (searchAction) !== "undefined")
+    {
+        if (searchAction.type === "keyword")
+        {
+            if (typeof (searchAction.value) === "string")
+                filterValue = searchAction.value;
+        }
+        else
+        {
+            if (searchAction.type === "asset")
+            {
+                if (typeof (searchAction.value) === "string")
+                    filterValue = searchAction.value;
+            }
+
+            if (searchAction.type === "location")
+            {
+                if (typeof (searchAction.subtype) === "string")
+                    filterValue = searchAction.subtype;
+                else
+                    filterValue = "n/a";
+
+                if (typeof (searchAction.value) === "string")
+                    filterValue += ":" + searchAction.value;
+                else
+                    filterValue += ":n/a";
+            }
+
+        }
+    }
+    return filterValue;
+};
+
+
+// Analytics Custom track function
+window.analytics.utility.initDataLayer = function (obj)
+{
+    window.analytics.utility.consoleLog("/********************************************************************************/");
+    window.analytics.utility.consoleLog("analytics.utility.initDataLayer: ");
+    window.analytics.utility.consoleLog(obj);
+    window.analytics.utility.consoleLog("/********************************************************************************/");
+
+    if (typeof (obj) !== "undefined")
+    {
+        for (var property_name in obj)
+        {
+
+            window.analytics = window.analytics || {};
+            window.analytics.data = window.analytics.data || {};
+            if (typeof (window.analytics.data[property_name]) === "undefined" || property_name.match(/event|products|appliedCriteria/g) !== null)
+            {
+                window.analytics.data[property_name] = obj[property_name];
+            }
+            else
+            {
+                for (var sub_property_name in obj[property_name])
+                {
+                    if (typeof (obj[property_name][sub_property_name]) !== "undefined")
+                        window.analytics.data[property_name][sub_property_name] = obj[property_name][sub_property_name];
+
+                    // if (typeof (window.analytics.data[property_name][sub_property_name]) === "string")
+                    //   window.analytics.data[property_name][sub_property_name] = window.analytics.data[property_name][sub_property_name].toLowerCase();
+                }
+            }
+        }
+    }
+};
+
+// Analytics Custom track function
+window.analytics.track = function (obj)
+{
+    window.analytics.utility.consoleLog("/********************************************************************************/");
+    window.analytics.utility.consoleLog("window.analytics.track: ");
+    window.analytics.utility.consoleLog(JSON.parse(JSON.stringify(obj)));
+    window.analytics.utility.consoleLog("/********************************************************************************/");
+
+    window.analytics.utility.initDataLayer(obj);
+
+    if (typeof (obj.event) !== "undefined")
+    {
+        if (typeof (obj.event.name) !== "undefined")
+            _satellite.track(obj.event.name.toLowerCase());
+    }
+};
+});</script>
+<script>_satellite["_runScript3"](function(event, target, Promise) {
+window.drift.on('chatOpen', function(data) {
+console.log("Drift Chat Pixel");
+  function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-447598468/ktiWCJyZ0oUYEISft9UB',
+      'event_callback': callback
+  });
+  return false;
+}
+gtag_report_conversion();  
+});
+
+
+window.drift.on("emailCapture", function(data) {
+console.log("Drift Email Pixel");
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-447598468/AXuHCN2q0oUYEISft9UB',
+      'event_callback': callback
+  });
+  return false;
+}
+gtag_report_conversion();
+
+gtag('event', 'conversion', {
+    'allow_custom_scripts': true,
+    'send_to': 'DC-13624206/pagev0/drift0+standard'
+});  
+gtag('event', 'conversion', {
+    'allow_custom_scripts': true,
+    'send_to': 'DC-13686631/pagev0/drift0+standard'
+});
+    
+gtag('event', 'purchase', {
+'allow_custom_scripts': true,
+'value': '[Revenue]',
+'transaction_id': '[OrderID]',
+'send_to': 'DC-11687960/fase1000/livec0+transactions'
+});
+  
+});  
+
+
+window.drift.on("startConversation", function(data) {
+  _satellite.cookie.set("chatevent",4);
+  console.log("User started a new conversation " + data.conversationId + data.inboxId);  
+  _satellite.track('chatAnalytics');
+}); 
+
+
+window.drift.on("conversation:buttonClicked", function(data) {
+  var button = data.buttonBody.toLowerCase();
+  if(button == "i'm an investor" || button == "i'm an tenant" || button == "i'm a landlord" || button == "i'm a developer"){
+    _satellite.cookie.set("chatevent",5);
+  }
+  else if(button.indexOf('expert')!= -1){
+    _satellite.cookie.set("chatevent",6);
+  }
+  console.log("user clicked a button with text: " + data.buttonBody);
+  var text = data.buttonBody;
+  _satellite.cookie.set("buttontext",text);
+  _satellite.track('chatAnalytics');
+});
+
+
+
+//_satellite.track('chatAnalytics');
+
+
+});</script>
+<script type="text/javascript">
+  var elqInstanceId = $('#eloquaFormScript').text().substring(0, $('#eloquaFormScript').text().search(']')).match(/\d+/)[0];
+  //console.log('elqInstanceId: ' + elqInstanceId);
+  
+  var _elqQ = _elqQ || [];
+  
+   var jServer = _satellite.getVar('JS - Server');
+/*  function elqdomainlit(instance){
+  var elqdomainlit="";
+    switch(instance){
+      case "65254455":
+        elqdomainlit="email-am";
+        break;
+      case "362000045":
+        elqdomainlit="email-ap";
+        break;
+      case "290512336":
+        elqdomainlit="email-em";
+        break;
+        case "1600883366":
+        elqdomainlit="email-cm";
+        break;
+    }
+    return elqdomainlit;
+  }
+var eloqdomain = jServer.replace("www",elqdomainlit(elqInstanceId));
+  _elqQ.push(['elqUseFirstPartyCookie', elqdomain]);*///uncomment when launching across all markets for progressive profiling and remove below
+//  if(elqInstanceId == "65254455" && jServer == "www.jll.ca" && window.location.href.indexOf("en/trends-and-insights/research/test-progressive-profiling")>-1){//Progressive profiling
+ //   console.log("first party cookie");
+ // _elqQ.push(['elqUseFirstPartyCookie', 'email-am.jll.ca']);
+ // }
+   if($('.eloqua-form').length !== 0){
+   _elqQ.push(['elqSetSiteId', elqInstanceId]);
+     
+  _elqQ.push(['elqTrackPageView', window.location.href]);
+  }else{
+  //Start added as part of TFS #1216071
+    _elqQ.push(['elqSetSiteId', '362000045']);
+
+    _elqQ.push(['elqTrackPageView', window.location.href]);
+
+   _elqQ.push(['elqSetSiteId', '65254455']);
+
+   _elqQ.push(['elqTrackPageView', window.location.href]);
+
+   _elqQ.push(['elqSetSiteId', '290512336']);
+
+   _elqQ.push(['elqTrackPageView', window.location.href]);
+    _elqQ.push(['elqSetSiteId', '1600883366']);
+
+   _elqQ.push(['elqTrackPageView', window.location.href]);
+   
+  }
+  (function() {
+      function async_load() {
+          var s = document.createElement('script');
+          s.type = 'text/javascript';
+          s.async = true;
+          s.src = '//img.en25.com/i/elqCfg.min.js';
+          var x = document.getElementsByTagName('script')[0];
+          x.parentNode.insertBefore(s, x);
+      }
+      if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+      else if (window.attachEvent) window.attachEvent('onload', async_load);
+  })();
+</script>
+<script>_satellite["_runScript4"](function(event, target, Promise) {
+jQuery("body").on("focus","form.eloqua-form input, form.eloqua-form textarea, form.eloqua-form select",(function(){_satellite.track("formstartnew")})),"subscribe.jll.com"==window.location.host&&jQuery("body").on("focus","form input, form textarea, form select",(function(){_satellite.track("formstartnew")}));
+});</script>
+<script>_satellite["_runScript5"](function(event, target, Promise) {
+digitalData=window.digitalData||{},_satellite.cookie.set("fstarted",0),jQuery("body").on("focus","form.eloqua-form input, form.eloqua-form textarea, form.eloqua-form select",(function(){var e=jQuery(this).parents("form").attr("id"),t=jQuery(this).parents("form").attr("data-redirect-target");formType="general contact";var a=jQuery(this).closest("form").attr("action");jQuery(this).parents("div.gated-download").length>0&&(formType="gated download"),void 0!==t&&t.match(/\.pdf$/)&&jQuery(this).parents("div.parsys").length>0&&(formType="campaign form"),"string"==typeof a&&a.indexOf("/en/gpl/contact-jll-utility-page/_jcr_content/")>-1&&(formType="ipl pdp contact"),"string"==typeof a&&a.indexOf("/en/gpl/_jcr_content/maincontent/responsivegrid/pagesection_13846711/experience-content/columnrow/column1558586496363/column-content/eloquaform.submit.json")>-1&&(formType="ipl pdp contact"),"string"==typeof a&&a.indexOf("trends-and-insights-subscription-form")>-1&&(formType="campaign form"),"string"==typeof a&&a.indexOf("/en/views/15-real-estate-strategies-that-boost-healthcare-margins")>-1&&(formType="campaign form"),"string"==typeof a&&a.indexOf("designandbuild")>-1&&(formType="campaign form"),"string"==typeof a&&a.indexOf("talk-to-us")>-1&&(formType="campaign form"),"string"==typeof a&&a.indexOf("/en/views/how-to-solve-the-hybrid-work-puzzle")>-1&&(formType="campaign form"),"string"==typeof a&&a.indexOf("/en/views/data-center-outlook-h1-2022")>-1&&(formType="campaign form"),"string"==typeof a&&a.indexOf("/en/views/real-estate-strategies-that-boost-healthcare-margins")>-1&&(formType="campaign form"),"string"==typeof a&&a.indexOf("reimagine-the-next-normal-of-real-estate")>-1&&(formType="campaign form"),"string"==typeof a&&a.indexOf("contact-us/")>-1&&(formType="general contact"),"string"==typeof a&&a.indexOf("subscribe-us")>-1&&(formType="t&i subscription"),void 0!==t&&t.indexOf("https://players.brightcove.net/")>-1&&jQuery(this).parents("div.parsys").length>0&&(formType="webinar form"),formObj=jQuery(this).parents("form"),jQuery(formObj).addClass("trackform"),digitalData=window.digitalData||{},digitalData.formName=jQuery("h1").text();var o=_satellite.getVar("JS - Server");_satellite.getVar("JS - URL");if("dev.us.jll.com"!=o&&"stage.us.jll.com"!=o&&"www.us.jll.com"!=o&&"dev.uk.jll.com"!=o&&"stage.uk.jll.com"!=o&&"www.jll.co.uk"!=o&&"dev.in.jll.com"!=o&&"stage.in.jll.com"!=o&&"www.jll.co.in"!=o||"/"===window.location.pathname&&(digitalData.formName="contact us"),"/en/contact-us"===window.location.pathname||"/"===window.location.pathname){var l="",n="";"dev.in.jll.com"==o||"stage.in.jll.com"==o||"www.jll.co.in"==o?(null!=$("[data-internal-name='C_Company']")[0]&&(l=$("[data-internal-name='C_Company']")[0].value),n=$("select[name='ManagementLevel']")[0].value,console.log($("#resource-1204772795").val()),console.log($("#resource-1204772795").find("option:selected").text()),console.log("Value: "+$("#resource-1204772795").val()+" | Text: "+$("#resource-1204772795").find("option:selected").text()),null!=l&&""!=l||(l="NA"),null!=n&&""!=n&&null!=n||(n="NA")):"dev.us.jll.com"==o||"stage.us.jll.com"==o||"www.us.jll.com"==o||"www.jll.ca"==o||"stage.ca.jll.com"==o||"dev.ca.jll.com"==o?(null!=$("[data-internal-name='C_Title']")[0]&&(n=$("[data-internal-name='C_Title']")[0].value),null!=$("[data-internal-name='C_Company_Name1']")[0]&&(l=$("[data-internal-name='C_Company_Name1']")[0].value),null!=l&&""!=l||(l="NA"),null!=n&&""!=n||(n="NA")):"stage.uk.jll.com"==o||"dev.uk.jll.com"==o||"www.jll.co.uk"==o||"stage.fr.jll.com"==o||"dev.fr.jll.com"==o||"www.jll.fr"==o||"stage.de.jll.com"==o||"dev.de.jll.com"==o||"www.jll.de"==o?(null!=$("[data-internal-name='C_Company']")[0]&&(l=$("[data-internal-name='C_Company']")[0].value),null!=$("[data-internal-name='C_Job_Title1']")[0]&&(n=$("[data-internal-name='C_Job_Title1']")[0].value),null!=l&&""!=l||(l="NA"),null!=n&&""!=n||(n="NA")):"stage.au.jll.com"!=o&&"dev.au.jll.com"!=o&&"www.jll.com.au"!=o&&"stage.sg.jll.com"!=o&&"dev.sg.jll.com"!=o&&"www.jll.com.sg"!=o&&"stage.cn.jll.com"!=o&&"dev.cn.jll.com"!=o&&"www.joneslanglasalle.com.cn"!=o&&"stage.jp.jll.com"!=o&&"dev.jp.jll.com"!=o&&"www.joneslanglasalle.co.jp"!=o&&"stage.hk.jll.com"!=o&&"dev.hk.jll.com"!=o&&"www.jll.com.hk"!=o||(null!=$("[data-internal-name='C_Company']")[0]&&(l=$("[data-internal-name='C_Company']")[0].value),null!=$("[data-internal-name='C_Title']")[0]&&(n=$("[data-internal-name='C_Title']")[0].value),null!=l&&""!=l||(l="NA"),null!=n&&""!=n||(n="NA")),digitalData.formcompanyname=l,digitalData.formjobtitle=n,_satellite.cookie.set("formcompanyname",l),_satellite.cookie.set("formjobtitle",n)}if(window.digitalData&&window.digitalData.formID?window.digitalData.formID!=e?newForm=!0:newForm=!1:newForm=!0,1==newForm&&_satellite.cookie.get("formID")!=e||1==newForm&&_satellite.cookie.get("formName")!=digitalData.formName){digitalData=window.digitalData||{},digitalData.formID=e,digitalData.formName=jQuery("h1").text();var i=_satellite.getVar("JS - Server");"dev.us.jll.com"!=i&&"stage.us.jll.com"!=i&&"www.us.jll.com"!=i&&"dev.in.jll.com"!=i&&"stage.in.jll.com"!=i&&"www.jll.co.in"!=i&&"dev.uk.jll.com"!=i&&"stage.uk.jll.com"!=i&&"www.jll.co.uk"!=i||"/"===window.location.pathname&&(digitalData.formName="contact us"),digitalData.formType=formType,digitalData.formReferrer=_satellite.getVar("prePageName"),digitalData.formGUID=$("input[name*='elqCustomerGUID']").val(),digitalData.formCountry=$("select[name*='country']").val()||$("select[name*='Country']").val(),_satellite.cookie.set("formID",digitalData.formID),_satellite.cookie.set("formName",digitalData.formName),_satellite.cookie.set("formType",digitalData.formType),_satellite.cookie.set("formReferrer",digitalData.formReferrer),_satellite.cookie.set("formGUID",digitalData.formGUID),_satellite.cookie.set("formCountry",digitalData.formCountry),_satellite.track("formstart"),_satellite.cookie.set("fstarted",1)}})),$("form.eloqua-form.eloqua-form--two-column input[name=Optin], form.eloqua-form.eloqua-form--two-column input[name=OptIn], form.eloqua-form.eloqua-form--two-column input[name=singleCheckbox]").length>0&&_satellite.cookie.set("formOptIn","N"),$("form.eloqua-form.eloqua-form--two-column input[name=Optin], form.eloqua-form.eloqua-form--two-column input[name=OptIn], form.eloqua-form.eloqua-form--two-column input[name=singleCheckbox]").click((function(){console.log(this),this.checked?(console.log("Y"),_satellite.cookie.set("formOptIn","Y")):(console.log("N"),_satellite.cookie.set("formOptIn","N"))})),jQuery("select[name=InquiryType]").on("change",(function(){inquiryType=jQuery(this).val(),digitalData.formInquiryType=inquiryType,_satellite.cookie.set("formInquiryType",digitalData.formInquiryType),_satellite.track("formTypeExample")})),jQuery("select[name='howCanWeHelpYou?']").on("change",(function(){inquiryType=jQuery(this).val(),digitalData.formInquiryType=inquiryType,_satellite.cookie.set("formInquiryType",digitalData.formInquiryType),_satellite.track("formTypeExample")}));var trackFormComplete=!1;jQuery(".footer ul.social-links li a").on("click",(function(){ContextHub.socialnetwork=jQuery(this).attr("title"),_satellite.track("social_profile_view")})),document.addEventListener("scroll",(function(){var e=document.documentElement,t=document.body,a="scrollTop",o="scrollHeight",l=parseInt((e[a]||t[a])/((e[o]||t[o])-e.clientHeight)*100);"undefined"==typeof ary_percents&&(ary_percents=[],window.ssdl=window.ssdl||{}),l>=25&&-1==ary_percents.indexOf("25")&&(ary_percents.push("25"),window.ssdl.scrolldepth="25%",_satellite.track("scrolldepth")),l>=50&&-1==ary_percents.indexOf("50")&&(ary_percents.push("50"),window.ssdl.scrolldepth="50%",_satellite.track("scrolldepth")),100==l&&-1==ary_percents.indexOf("100")&&(ary_percents.push("100"),window.ssdl.scrolldepth="100%",_satellite.track("scrolldepth"))}));
+});</script>
+<!--  -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=DC-9091424"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'DC-9091424');
+</script>
+<script>_satellite["_runScript6"](function(event, target, Promise) {
+function ObservableArray(e){function t(e){e in n||Object.defineProperty(n,e,{configurable:!0,enumerable:!0,get:function(){return a[e]},set:function(t){a[e]=t,i({type:"itemset",index:e,item:t})}})}function i(e){r[e.type].forEach((function(t){t.call(n,e)}))}var n=this,a=[],r={itemadded:[],itemremoved:[],itemset:[]};Object.defineProperty(n,"addEventListener",{configurable:!1,enumerable:!1,writable:!1,value:function(e,t){if(!((e=(""+e).toLowerCase())in r))throw new Error("Invalid event name.");if("function"!=typeof t)throw new Error("Invalid handler.");r[e].push(t)}}),Object.defineProperty(n,"removeEventListener",{configurable:!1,enumerable:!1,writable:!1,value:function(e,t){if(!((e=(""+e).toLowerCase())in r))throw new Error("Invalid event name.");if("function"!=typeof t)throw new Error("Invalid handler.");for(var i=r[e],n=i.length;--n>=0;)i[n]===t&&i.splice(n,1)}}),Object.defineProperty(n,"push",{configurable:!1,enumerable:!1,writable:!1,value:function(){for(var e,n=0,r=arguments.length;n<r;n++)e=a.length,a.push(arguments[n]),t(e),i({type:"itemadded",index:e,item:arguments[n]});return a.length}}),Object.defineProperty(n,"pop",{configurable:!1,enumerable:!1,writable:!1,value:function(){if(a.length>-1){var e=a.length-1,t=a.pop();return delete n[e],i({type:"itemremoved",index:e,item:t}),t}}}),Object.defineProperty(n,"unshift",{configurable:!1,enumerable:!1,writable:!1,value:function(){for(var e=0,n=arguments.length;e<n;e++)a.splice(e,0,arguments[e]),t(a.length-1),i({type:"itemadded",index:e,item:arguments[e]});for(;e<a.length;e++)i({type:"itemset",index:e,item:a[e]});return a.length}}),Object.defineProperty(n,"shift",{configurable:!1,enumerable:!1,writable:!1,value:function(){if(a.length>-1){var e=a.shift();return delete n[a.length],i({type:"itemremoved",index:0,item:e}),e}}}),Object.defineProperty(n,"splice",{configurable:!1,enumerable:!1,writable:!1,value:function(e,r){var l,o=[];for(e=null==e?0:e<0?a.length+e:e,r=null==r?a.length-e:r>0?r:0;r--;)l=a.splice(e,1)[0],o.push(l),delete n[a.length],i({type:"itemremoved",index:e+o.length-1,item:l});for(var d=2,c=arguments.length;d<c;d++)a.splice(e,0,arguments[d]),t(a.length-1),i({type:"itemadded",index:e,item:arguments[d]}),e++;return o}}),Object.defineProperty(n,"length",{configurable:!1,enumerable:!1,get:function(){return a.length},set:function(e){var t=Number(e),i=a.length;if(!(t%1==0&&t>=0))throw new RangeError("Invalid array length");return t<i?n.splice(t):t>i&&n.push.apply(n,new Array(t-i)),a.length=t,e}}),Object.getOwnPropertyNames(Array.prototype).forEach((function(e){e in n||Object.defineProperty(n,e,{configurable:!1,enumerable:!1,writable:!1,value:Array.prototype[e]})})),e instanceof Array&&n.push.apply(n,e)}window.digitalDataTrack=window.digitalDataTrack||[];var digitalDataTrackLength=window.digitalDataTrack.length;if(digitalDataTrackLength>0)for(var i=0;i<digitalDataTrackLength;i++)window.analytics.utility.initDataLayer(window.digitalDataTrack[i]),window.analytics.utility.consoleLog(window.digitalDataTrack[i]),void 0!==window.digitalDataTrack[i]&&void 0!==window.digitalDataTrack[i].event&&void 0!==window.digitalDataTrack[i].event.name&&_satellite.track(window.digitalDataTrack[i].event.name.toLowerCase());window.digitalDataTrack=[],window.digitalDataTrack=new ObservableArray(window.digitalDataTrack),null!=window.analytics&&(window.analytics.utility.addEvent(window.digitalDataTrack,"itemadded",(function(e){window.analytics.track(e.item),window.digitalDataTrack.shift()})),window.analytics.utility.addEvent(window.digitalDataTrack,"itemset",(function(){})),window.analytics.utility.addEvent(window.digitalDataTrack,"itemremoved",(function(){})));
+});</script>
+<script async="" src="https://assets.sitescdn.net/ytag/ytag.min.js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'DC-13624206');
+</script>
+<script class="">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'DC-13686631');
+</script>
+<script type="text/javascript">
+_linkedin_partner_id = "384634";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script>
+<script type="text/javascript">
+(function(l) {if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+      <script src="https://Images.discover.jll.com/Web/JLL/{d432fb92-8562-469c-8799-2ae0634b9b89}_splide.min.js"></script>
+      <script src="https://Images.discover.jll.com/Web/JLL/{d432fb92-8562-469c-8799-2ae0634b9b89}_splide.min.js"></script>
+    <style>
+    :root {
+        --primary-color: #2196f3;
+        --primary-glow: rgba(33, 150, 243, 0.8);
+        --secondary-color: #9c27b0;
+        --text-color: #ffffff;
+        --bg-color: #0a0a12;
+        --nav-bg: rgba(16, 16, 26, 0.7);
+        --dropdown-bg: rgba(20, 20, 35, 0.8);
+        --hover-color: #3f51b5;
+        --border-color: rgba(255, 255, 255, 0.08);
+        --shadow-color: rgba(0, 0, 0, 0.3);
+        --neon-glow: 0 0 10px rgba(33, 150, 243, 0.5),
+                     0 0 20px rgba(33, 150, 243, 0.3),
+                     0 0 30px rgba(33, 150, 243, 0.1);
+        --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-medium: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        --gradient-bg: linear-gradient(135deg, var(--bg-color), #151530 80%);
+        --glass-effect: saturate(180%) blur(14px);
+        --border-radius: 16px;
+        --text-description: rgba(255, 255, 255, 0.7);
+        --nav-blur: blur(12px);
+        --nav-shadow: 0 8px 32px 0 rgba(33,150,243,0.12);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background: var(--gradient-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+        position: relative;
+		
+    }
+
+    .header1 {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10000;
+        backdrop-filter: var(--glass-effect);
+        -webkit-backdrop-filter: var(--glass-effect);
+        background: var(--nav-bg);
+        box-shadow: var(--nav-shadow);
+    }
+        
+   
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 2.5rem;
+        background: var(--nav-bg);
+        backdrop-filter: var(--glass-effect);
+        -webkit-backdrop-filter: var(--glass-effect);
+        border-radius: 0 0 22px 22px;
+        box-shadow: var(--nav-shadow);
+        transition: background 0.4s, box-shadow 0.4s, padding 0.3s;
+        position: relative;
+        animation: navbarFadeIn 0.7s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    @keyframes navbarFadeIn {
+        from { opacity: 0; transform: translateY(-30px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+
+    /* Logo */
+    .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 1.3rem;
+        font-weight: 700;
+        transition: color var(--transition-medium);
+    }
+    .logo img {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        transition: transform var(--transition-medium);
+    }
+    .logo img:hover {
+        transform: rotate(360deg);
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 0 10px var(--primary-glow);
+    }
+    .logo:hover img {
+        animation: logo-spin-scale 0.7s cubic-bezier(0.4,0,0.2,1);
+        transform: scale(1.1) rotate(360deg);
+    }
+    @keyframes logo-spin-scale {
+        0% {
+            transform: scale(1) rotate(0deg);
+        }
+        60% {
+            transform: scale(1.15) rotate(320deg);
+        }
+        100% {
+            transform: scale(1.1) rotate(360deg);
+        }
+    }
+    .logo span {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-color);
+        margin-left: 0.7rem;
+        transition: color var(--transition-medium);
+    }
+    .logo:hover {
+        color: var(--primary-color);
+        text-shadow: var(--neon-glow);
+    }
+    .logo:hover img {
+        box-shadow: 0 0 10px var(--primary-glow);
+    }
+    .logo img:hover {
+        box-shadow: 0 0 10px var(--primary-glow);
+        transform: rotate(360deg);
+    }
+
+    /* Navigation Menu */
+    .nav-menu {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .nav-list {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+    }
+
+    .nav-item {
+        position: relative;
+    }
+
+    .nav-link {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.5rem 1.1rem;
+        border-radius: var(--border-radius);
+        transition: 
+            color var(--transition-medium),
+            background var(--transition-medium),
+            box-shadow var(--transition-medium),
+            transform var(--transition-medium);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 1.07rem;
+        position: relative;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        color: var(--primary-color);
+        text-shadow: var(--neon-glow);
+        background: linear-gradient(90deg, rgba(33,150,243,0.13) 60%, rgba(156,39,176,0.09));
+        transform: translateY(-2px) scale(1.045);
+        box-shadow: 0 2px 12px 0 rgba(33,150,243,0.08);
+    }
+
+    .nav-link.active::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 8px;
+        height: 8px;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        border-radius: 50%;
+        box-shadow: var(--neon-glow);
+        animation: navActiveDot 0.5s;
+    }
+    @keyframes navActiveDot {
+        from { opacity: 0; transform: scale(0.5);}
+        to { opacity: 1; transform: scale(1);}
+    }
+
+    /* Icons */
+    .icon {
+        transition: var(--transition-medium);
+        vertical-align: middle;
+        filter: drop-shadow(0 0 2px var(--primary-glow));
+    }
+
+    .chevron-icon {
+        transition: transform var(--transition-medium);
+    }
+
+    .has-dropdown:hover .chevron-icon {
+        transform: rotate(180deg) scale(1.1);
+    }
+
+    .hidden {
+        display: none;
+    }
+    <!--  -->
+    
+
+    /* Dropdown Menus */
+    .has-dropdown {
+        position: relative;
+    }
+
+    .dropdown {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        min-width: 230px;
+        background: var(--dropdown-bg);
+        backdrop-filter: var(--glass-effect);
+        -webkit-backdrop-filter: var(--glass-effect);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 0.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px) scale(0.98);
+        transition: all var(--transition-medium);
+        box-shadow: 0 12px 36px var(--shadow-color);
+        z-index: 100;
+       
+    }
+
+    .has-dropdown:hover .dropdown,
+    .has-dropdown.active .dropdown {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+        pointer-events: pointer;
+    }
+    
+    .dropdown::before {
+        content: '';
+        position: absolute;
+        top: -6px;
+        left: 20px;
+        width: 12px;
+        height: 12px;
+        background: var(--dropdown-bg);
+        border-left: 1px solid var(--border-color);
+        border-top: 1px solid var(--border-color);
+        transform: rotate(45deg);
+        backdrop-filter: var(--glass-effect);
+        -webkit-backdrop-filter: var(--glass-effect);
+    }
+
+    .dropdown li {
+        list-style: none;
+    }
+
+    .dropdown a {
+        color: var(--text-color);
+        text-decoration: none;
+        padding: 0.7rem 1rem;
+        display: block;
+        border-radius: var(--border-radius);
+        transition: 
+        background var(--transition-medium),
+        color var(--transition-medium),
+        transform var(--transition-medium);
+        margin-bottom: 2px;
+        font-weight: 500;
+        position: relative;
+        
+    }
+
+    .dropdown a:hover {
+        background: rgba(33, 150, 243, 0.15);
+        color: var(--primary-color);
+        transform: translateX(5px);
+        box-shadow: 0 0 8px var(--primary-glow);
+    }
+
+    /* Search Bar */
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 1.1rem;
+    }
+
+    .search-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .search-input {
+        padding: 0.6rem 1.1rem;
+        border: none;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.10);
+        color: var(--text-color);
+        width: 170px;
+        transition: 
+            background var(--transition-medium),
+            width var(--transition-medium),
+            box-shadow var(--transition-medium);
+        font-size: 1.01rem;
+        font-weight: 500;
+        box-shadow: 0 2px 8px 0 rgba(33,150,243,0.06);
+    }
+
+    .search-input:focus {
+        outline: none;
+        background: rgba(255, 255, 255, 0.18);
+        width: 220px;
+        box-shadow: 0 0 0 3px var(--primary-glow), 0 2px 8px 0 rgba(33,150,243,0.10);
+    }
+
+    .search-input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 400;
+        letter-spacing: 0.03em;
+    }
+
+    .search-btn {
+        background: none;
+        border: none;
+        color: var(--text-color);
+        cursor: pointer;
+        padding: 0.5rem;
+        position: absolute;
+        right: 5px;
+        transition: 
+            color var(--transition-fast),
+            background var(--transition-fast),
+            transform var(--transition-fast);
+        border-radius: 50%;
+        z-index: 2;
+    }
+
+    .search-btn:hover {
+        color: var(--primary-color);
+        transform: scale(1.13) rotate(-8deg);
+        background: rgba(33,150,243,0.10);
+        box-shadow: 0 0 8px var(--primary-glow);
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1.5px solid var(--border-color);
+        color: var(--text-color);
+        cursor: pointer;
+        padding: 0.6rem;
+        font-size: 1.2rem;
+        transition: 
+            color var(--transition-medium),
+            background var(--transition-medium),
+            transform var(--transition-medium);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px 0 rgba(33,150,243,0.08);
+    }
+
+    .theme-toggle:hover {
+        color: var(--primary-color);
+        text-shadow: var(--neon-glow);
+        background: rgba(255, 255, 255, 0.15);
+        transform: rotate(15deg) scale(1.09);
+        box-shadow: 0 0 16px var(--primary-glow);
+    }
+
+    /* Hamburger Menu */
+    .nav-toggle {
+        display: none;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1.5px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 0.6rem;
+        transition: background var(--transition-medium), box-shadow var(--transition-medium);
+        box-shadow: 0 2px 8px 0 rgba(33,150,243,0.08);
+    }
+
+    .nav-toggle:hover {
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    .hamburger {
+        width: 26px;
+        height: 20px;
+        position: relative;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 100%;
+        height: 2.5px;
+        background: var(--text-color);
+        position: absolute;
+        transition: all var(--transition-medium);
+        border-radius: 10px;
+        box-shadow: 0 0 6px var(--primary-glow);
+    }
+
+    .hamburger span:first-child {
+        top: 0;
+    }
+
+    .hamburger span:nth-child(2) {
+        top: 9px;
+        width: 70%;
+    }
+
+    .hamburger span:last-child {
+        top: 18px;
+    }
+
+    /* Mobile Menu Active State */
+    .nav-active .hamburger span:first-child {
+        transform: rotate(45deg);
+        top: 9px;
+    }
+
+    .nav-active .hamburger span:nth-child(2) {
+        opacity: 0;
+        width: 0;
+    }
+
+    .nav-active .hamburger span:last-child {
+        transform: rotate(-45deg);
+        top: 9px;
+    }
+
+    /* Show nav-toggle on small screens */
+    @media (max-width: 968px) {
+        .nav-toggle {
+            display: block;
+        }
+        .nav-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            flex-direction: column;
+            gap: 0;
+            z-index: 999;
+            border-radius: 0 0 22px 22px;
+            box-shadow: 0 8px 32px var(--shadow-color);
+            animation: mobileMenuSlideDown 0.4s;
+        }
+        @keyframes mobileMenuSlideDown {
+            from { opacity: 0; transform: translateY(-30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .navbar.nav-active .nav-menu {
+            display: flex;
+        }
+        .nav-list {
+            flex-direction: column;
+            gap: 0.5rem;
+            width: 100%;
+        }
+        .nav-link {
+            padding: 1rem 2rem;
+            font-size: 1.13rem;
+            border-radius: 0;
+            border-bottom: 1px solid var(--border-color);
+            background: transparent;
+        }
+        .nav-link:last-child {
+            border-bottom: none;
+        }
+        .dropdown {
+            position: relative;
+            min-width: 100%;
+            box-shadow: none;
+            border-radius: 0 0 14px 14px;
+            margin-bottom: 0.5rem;
+            background: var(--dropdown-bg);
+            animation: none;
+        }
+        .dropdown::before {
+            display: none;
+        }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 576px) {
+        .navbar {
+            padding: 1rem 0.7rem;
+        }
+        .logo {
+            font-size: 1.1rem;
+            padding: 0.1rem 0.4rem 0.1rem 0.1rem;
+        }
+        .logo img {
+            height: 30px;
+            width: 30px;
+        }
+        .nav-link {
+            font-size: 1rem;
+            padding: 0.8rem 1.2rem;
+        }
+        .search-input {
+            width: 120px;
+            font-size: 0.9rem;
+        }
+        .search-input:focus {
+            width: 160px;
+        }
+    }
+
+    /* Accessibility: focus styles */
+    a:focus, button:focus, input:focus {
+        outline: 2px solid var(--primary-color);
+        outline-offset: 2px;
+        box-shadow: 0 0 0 3px var(--primary-glow);
+        z-index: 10;
+    }
+
+  </style>
+</head>
+<body>
+	      
+    <header class="header1">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="Raj.html" class="logo" aria-label="Nancy SMK Ltd Home">
+                    <img src="NS.png" alt="NS Logo">
+                    <span>NANCY SMK LTD</span>
+                </a>
+            </div>
+
+            <div class="nav-toggle" aria-label="Open navigation" tabindex="0" role="button">
+                <div class="hamburger" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <div class="nav-menu" role="navigation" aria-label="Main navigation">
+                <ul class="nav-list">
+                    
+                    
+                   
+                    <li class="nav-item has-dropdown">
+                        <a href="Service.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
+                            <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                                <path d="M12 4.81V19.19C7.16 18.7 3 14.52 3 9.5c0-1.61.39-3.13 1.08-4.47L12 4.81zM21 9.5c0 5.02-4.16 9.2-9 9.69V4.81l7.92 0.22C20.61 6.37 21 7.89 21 9.5z" fill="currentColor"/>
+                            </svg>
+                            Services
+                            <svg class="icon chevron-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                                <path d="M7 10l5 5 5-5z" fill="currentColor"></path>
+                            </svg>
+                        </a>
+                        <ul class="dropdown" aria-label="Services submenu">
+                            <li>
+                                <a href="Consulting.html">
+                                    <svg class="icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="currentColor"/>
+                                    </svg>
+                                    Consulting
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Development.html">
+                                    <svg class="icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                                        <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 8h14v-2H7v2zm0-4h14v-2H7v2zm0-6v2h14V7H7z" fill="currentColor"/>
+                                    </svg>
+                                    Development
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Support.html">
+                                    <svg class="icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                                        <path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10zm1-17h-2v6h6v-2h-4z" fill="currentColor"/>
+                                    </svg>
+                                    Support
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Training.html">
+                                    <svg class="icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                                        <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.09L3.74 10.04 12 5.13l8.26 4.91L12 16.09z" fill="currentColor"/>
+                                    </svg>
+                                    Training
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Contact.html" class="nav-link">
+                            <svg class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                                <path d="M21 8V7l-3 2.29V8c0-1.1-.9-2-2-2H8C6.9 6 6 6.9 6 8v8c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-1.29L21 17v-9zm-2 8c0 .55-.45 1-1 1H8c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1h8c.55 0 1 .45 1 1v8z" fill="currentColor"/>
+                            </svg>
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+
+              
+            </div>
+        </nav>
+    </header>
+<main id="page-content">
+		<section class="section img-txt" id="hero" data-name="hero" elq-delete="true">
+			<div class="container">
+				<div class="image">
+					<img src="https://Images.discover.jll.com/EloquaImages/clients/JLL/%7Ba6beded8-abdc-4530-a584-40bd409a1472%7D_Updated_design_soultion_header_image.jpg" alt="Design your office to deliver exceptional Expriences" elq-edit="true" class="" style="width: 534px; height: auto; max-width: 100%;">
+				</div>
+				<div class="copy">
+					
+					<header class="header">
+						<h1 elq-edit="true" id="hero-header" class=""><strong>Design your office to deliver exceptional experiences</strong></h1>
+					</header>
+					<div elq-edit="true" elq-delete="true" class=""><p>Get expert design solutions that inspire creativity and collaboration</p>
+                </div>
+					<div elq-edit="true" elq-delete="true" class=""><a class="btn nav-link" href="?elqTrack=true#c-form"><span>Talk to us</span> <svg class="icon-a" fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="https://www.jll.co.in/en/solutions/design-solutions#form"> <path clip-rule="evenodd" d="M3.33398 9.99935C3.33398 9.53911 3.70708 9.16602 4.16732 9.16602H15.834C16.2942 9.16602 16.6673 9.53911 16.6673 9.99935C16.6673 10.4596 16.2942 10.8327 15.834 10.8327H4.16732C3.70708 10.8327 3.33398 10.4596 3.33398 9.99935Z" fill="white" fill-rule="evenodd"></path> <path clip-rule="evenodd" d="M9.41009 3.57806C9.73553 3.25263 10.2632 3.25263 10.5886 3.57806L16.4219 9.4114C16.7474 9.73683 16.7474 10.2645 16.4219 10.5899L10.5886 16.4232C10.2632 16.7487 9.73553 16.7487 9.41009 16.4232C9.08466 16.0978 9.08466 15.5702 9.41009 15.2447L14.6542 10.0007L9.41009 4.75657C9.08466 4.43114 9.08466 3.9035 9.41009 3.57806Z" fill="white" fill-rule="evenodd"></path> </svg> </a></div>
+				</div>
+			</div>
+		</section>
+
+        <!-- 1 -->
+      
+      
+       <section class="section" id="custom-html" data-name="custom-html">
+    
+			<div class="container" elq-edit="true" elq-delete="true">
+              
+              <header class="header">
+					<h1 elq-edit="true" elq-delete="true" id="i-res-header" class=""><strong>Create the office you always wanted</strong></h1>
+				</header>
+              <div elq-edit="true" elq-delete="true" class=""><p>Imagine a work environment where you have the answers for tomorrow's challenges, celebrate unique interactions, foster a sense of belonging within your team and create memorable experiences for your employees, visitors and community. </p>
+<p>Our design experts blend human experience ideas with market intelligence, data, technology, and sustainability to deliver workplaces that build value.</p>
+</div>
+              
+				
+              
+         
+			</div>
+		</section>
+
+		
+
+      
+      	<section id="t-res" data-name="text-resources" class="section" elq-delete="true" style="background-color:#f7ece3;">
+			<div class="container">
+				<header class="header">
+					<h1 elq-edit="true" id="t-res-header" class=""><strong>Explore our services</strong></h1>
+				</header>
+				<div class="box-items">
+					<!-- 1 ↓ -->
+					<div class="item" elq-delete="true">
+						<div class="txt">
+							<h3 elq-edit="true" id="tr-h31" class=""><strong>Portfolio design</strong></h3>
+							<div elq-edit="true" elq-delete="true" class=""><p>We can be your strategic design partner, transforming your spaces to meet your organisation’s evolving needs. Our design professionals deliver portfolio-wide excellence, ensuring cohesive, brand-aligned, and consistent designs wherever you operate.</p>
+</div>
+						</div>
+						
+					</div>
+
+					<!-- 2 ↓ -->
+					<div class="item" elq-delete="true">
+						<div class="txt">
+							<h3 elq-edit="true" id="tr-h32" class=""><strong>Design consultancy</strong></h3>
+							<div elq-edit="true" elq-delete="true" class=""><p>Get an end-to-end solution, ranging from initial space planning to schematic and detailed construction design drawings to onsite follow-ups, all delivered by our in-country teams or regional centres.</p>
+</div>
+						</div>
+						
+					</div>
+
+			
+					
+
+					<!-- 3 ↓ -->
+					<div class="item" elq-delete="true">
+						<div class="txt">
+							<h3 elq-edit="true" id="tr-h34" class=""><strong>“Design+” projects suite</strong></h3>
+							<div elq-edit="true" elq-delete="true" class=""><p>Streamline your project by bundling design consultancy with cost and project management, all through one single point of contact from start to finish.</p>
+</div>
+						</div>
+						
+					</div>
+
+					<!-- 4 ↓ -->
+					<div class="item" elq-delete="true">
+						<div class="txt">
+							<h3 elq-edit="true" id="tr-h35" class=""><strong>Design &amp; construct</strong></h3>
+							<div elq-edit="true" elq-delete="true" class=""><p>Accelerate your fit-out works with our turnkey solutions that leverage industry expertise and commercial negotiation power to deliver safe, high-quality projects on budget.</p>
+</div>
+						</div>
+						
+					</div>
+                  
+                  <!-- 5 ↓ -->
+					<div class="item" elq-delete="true">
+						<div class="txt">
+							<h3 elq-edit="true" id="tr-h34" class=""><strong>AI-powered design</strong></h3>
+							<div elq-edit="true" elq-delete="true" class=""><p>Harness the latest technology to drive your design journey, experiencing your project through test-fits, visualisations, virtual walkthroughs and design due diligence before committing to a budget.</p>
+</div>
+						</div>
+						
+					</div>
+                  
+                  <!-- 6 ↓ -->
+					<div class="item" elq-delete="true">
+						<div class="txt">
+							<h3 elq-edit="true" id="tr-h34" class=""><strong>Design localisation</strong></h3>
+							<div elq-edit="true" elq-delete="true" class=""><p>Our designers blend global expertise with local compliance, creating spaces that honour your brand vision while seamlessly adapting to regional nuances and regulations.</p>
+</div>
+						</div>
+						
+					</div>
+                  
+                  
+				</div>
+			</div>
+		</section>
+      
+      	
+
+
+      
+        <section class="section col-to-row" id="stats" data-name="stats" elq-delete="true">
+         
+         <div class="container1">
+           <header class="header">
+					<h1 elq-edit="true" id="t-res-header" class=""><strong>What sets us apart?</strong></h1>
+				</header>
+           
+         </div>
+			<div class="container">
+            
+				
+              			<div class="item">
+					<div class="title" elq-edit="true" elq-delete="true" style="color:#e30613;"><p><span style="color:#e30615;"><strong><span data-teams="true">1500</span></strong></span></p>
+</div>
+					<div class="copy" elq-edit="true" elq-delete="true"><h3><strong><span data-teams="true">design professionals</span></strong></h3>
+</div>
+				</div>
+				<div class="item">
+					<div class="title" elq-edit="true" elq-delete="true" style="color:#e30613;"><p><strong><span style="color:#e30615;"><span data-teams="true">70+</span></span></strong></p>
+</div>
+					<div class="copy" elq-edit="true" elq-delete="true"><h3><strong><span data-teams="true">countries</span></strong></h3>
+</div>
+				</div>
+				<div class="item">
+					<div class="title" elq-edit="true" elq-delete="true" style="color:#e30613;"><p><strong>50+</strong></p>
+</div>
+					<div class="copy" elq-edit="true" elq-delete="true"><h3><strong><span data-teams="true">studios</span></strong></h3>
+</div>
+				</div>
+				<div class="item">
+					<div class="title" elq-edit="true" elq-delete="true" style="color:#e30613;"><p><span style="color:#e30615;"><strong><span data-teams="true">30+ </span></strong></span></p>
+</div>
+					<div class="copy" elq-edit="true" elq-delete="true"><h3><strong><span data-teams="true">years’ experience</span></strong></h3>
+</div>
+				</div>
+			</div>
+		</section>
+
+		
+		
+
+	
+		<section class="section img-txt-feat" id="feat" data-name="featured" elq-delete="true">
+			<div class="container">
+              
+           
+			
+				
+              
+				<div class="splide splide--loop splide--ltr splide--draggable is-active is-overflow is-initialized" role="group" aria-label="featured" id="splide01" aria-roledescription="carousel">
+					<div class="splide__track splide__track--loop splide__track--ltr splide__track--draggable" id="splide01-track" style="padding-left: 0px; padding-right: 0px;" aria-live="polite" aria-atomic="true">
+						<ul class="splide__list" id="splide01-list" role="presentation" style="transform: translateX(-444px);">
+							<li class="splide__slide ft-con splide__slide--clone is-active" id="splide01-clone01" role="tabpanel" aria-roledescription="slide" aria-label="1 of 2" style="width: calc(100%);" aria-hidden="true">
+								<div class="image">
+									<iframe width="100%" height="360" src="//players.brightcove.net/4884802278001/2990V4Vfa_default/index.html?videoId=6340352694112" allowfullscreen="" frameborder="0" tabindex="-1"></iframe>
+								</div>
+								<div class="copy">
+									<header class="header">
+										<h3>JLL offices: Hear from our designers</h3>
+									</header>
+										<p>From flexible workspaces to smart technologies, we create environments that inspire productivity and collaboration. Discover how our designers combine innovation, functionality, and sustainability across our JLL offices in Asia Pacific.</p>
+								<div class="link">
+										<a class="wai btn nav-link" href="?elqTrack=true#c-form" tabindex="-1">&nbsp;</a>
+									</div>
+								</div>
+							</li><li class="splide__slide ft-con splide__slide--clone is-prev" id="splide01-clone02" role="tabpanel" aria-roledescription="slide" aria-label="2 of 2" style="width: calc(100%);" aria-hidden="true">
+								<div class="image">
+									<iframe width="100%" height="360" src="//players.brightcove.net/4884802278001/Lp6mLs6lf_default/index.html?videoId=6323016249112" allowfullscreen="" frameborder="0" tabindex="-1"></iframe>
+								</div>
+								<div class="copy">
+								<header class="header">
+										<h3>Make your office work better for your people</h3>
+									</header>
+										<p>Create workspaces that inspire collaboration and creativity. Our experts combine inspiration, technology and functionality to create future-ready offices that build memorable experiences for your clients, people and the community. Let us help you envision the future of work, today.</p>
+								<div class="link">
+										<a class="wai btn nav-link" href="?elqTrack=true#c-form" tabindex="-1">&nbsp;</a>
+									</div>
+								</div>
+							</li><li class="splide__slide ft-con is-active is-visible" id="splide01-slide01" role="tabpanel" aria-roledescription="slide" aria-label="1 of 2" style="width: calc(100%);">
+								<div class="image">
+									<iframe width="100%" height="360" src="//players.brightcove.net/4884802278001/2990V4Vfa_default/index.html?videoId=6340352694112" allowfullscreen="" frameborder="0"></iframe>
+								</div>
+								<div class="copy">
+									<header class="header">
+										<h3>JLL offices: Hear from our designers</h3>
+									</header>
+										<p>From flexible workspaces to smart technologies, we create environments that inspire productivity and collaboration. Discover how our designers combine innovation, functionality, and sustainability across our JLL offices in Asia Pacific.</p>
+								<div class="link">
+										<a class="wai btn nav-link" href="?elqTrack=true#c-form">&nbsp;</a>
+									</div>
+								</div>
+							</li>
+
+						
+
+							<li class="splide__slide ft-con is-next" id="splide01-slide02" role="tabpanel" aria-roledescription="slide" aria-label="2 of 2" style="width: calc(100%);" aria-hidden="true">
+								<div class="image">
+									<iframe width="100%" height="360" src="//players.brightcove.net/4884802278001/Lp6mLs6lf_default/index.html?videoId=6323016249112" allowfullscreen="" frameborder="0" tabindex="-1"></iframe>
+								</div>
+								<div class="copy">
+								<header class="header">
+										<h3>Make your office work better for your people</h3>
+									</header>
+										<p>Create workspaces that inspire collaboration and creativity. Our experts combine inspiration, technology and functionality to create future-ready offices that build memorable experiences for your clients, people and the community. Let us help you envision the future of work, today.</p>
+								<div class="link">
+										<a class="wai btn nav-link" href="?elqTrack=true#c-form" tabindex="-1">&nbsp;</a>
+									</div>
+								</div>
+							</li>
+                         
+						<li class="splide__slide ft-con splide__slide--clone is-active" id="splide01-clone03" role="tabpanel" aria-roledescription="slide" aria-label="1 of 2" style="width: calc(100%);" aria-hidden="true">
+								<div class="image">
+									<iframe width="100%" height="360" src="//players.brightcove.net/4884802278001/2990V4Vfa_default/index.html?videoId=6340352694112" allowfullscreen="" frameborder="0" tabindex="-1"></iframe>
+								</div>
+								<div class="copy">
+									<header class="header">
+										<h3>JLL offices: Hear from our designers</h3>
+									</header>
+										<p>From flexible workspaces to smart technologies, we create environments that inspire productivity and collaboration. Discover how our designers combine innovation, functionality, and sustainability across our JLL offices in Asia Pacific.</p>
+								<div class="link">
+										<a class="wai btn nav-link" href="?elqTrack=true#c-form" tabindex="-1">&nbsp;</a>
+									</div>
+								</div>
+							</li><li class="splide__slide ft-con splide__slide--clone" id="splide01-clone04" role="tabpanel" aria-roledescription="slide" aria-label="2 of 2" style="width: calc(100%);" aria-hidden="true">
+								<div class="image">
+									<iframe width="100%" height="360" src="//players.brightcove.net/4884802278001/Lp6mLs6lf_default/index.html?videoId=6323016249112" allowfullscreen="" frameborder="0" tabindex="-1"></iframe>
+								</div>
+								<div class="copy">
+								<header class="header">
+										<h3>Make your office work better for your people</h3>
+									</header>
+										<p>Create workspaces that inspire collaboration and creativity. Our experts combine inspiration, technology and functionality to create future-ready offices that build memorable experiences for your clients, people and the community. Let us help you envision the future of work, today.</p>
+								<div class="link">
+										<a class="wai btn nav-link" href="?elqTrack=true#c-form" tabindex="-1">&nbsp;</a>
+									</div>
+								</div>
+							</li></ul>
+					</div>
+					<div class="splide__arrows splide__arrows--ltr">
+						<button class="splide__arrow splide__arrow--prev" aria-label="Go to last slide" aria-controls="splide01-track">
+							<svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M5.99953 12.0293L0.345703 6.3755L5.99953 0.72168L7.05335 1.77551L2.45335 6.3755L7.05335 10.9755L5.99953 12.0293Z" fill="#01151C"></path>
+							</svg>
+						</button>
+						<button class="splide__arrow splide__arrow--next" aria-label="Next slide" aria-controls="splide01-track">
+							<svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M1.39953 12.0293L0.345703 10.9755L4.9457 6.3755L0.345703 1.77551L1.39953 0.72168L7.05335 6.3755L1.39953 12.0293Z" fill="#01151C"></path>
+							</svg>
+						</button>
+					</div>
+				<ul class="splide__pagination splide__pagination--ltr" role="tablist" aria-label="Select a slide to show"><li role="presentation"><button class="splide__pagination__page is-active" type="button" role="tab" aria-controls="splide01-slide01" aria-label="Go to slide 1" aria-selected="true"></button></li><li role="presentation"><button class="splide__pagination__page" type="button" role="tab" aria-controls="splide01-slide02" aria-label="Go to slide 2" tabindex="-1"></button></li></ul></div>
+			</div>
+		</section>
+
+		
+
+		<section id="c-form" data-name="form" class="section form-section" elq-delete="true">
+			<div class="container">
+				<div id="form-step-1">
+					<header class="header">
+						<h3 elq-edit="true" id="c-form-header_1" class=""><strong>Take the first step towards designing a collaborative office</strong></h3>
+						<div elq-edit="true" elq-delete="true" class=""><p>Build an office that works for your people and business</p>
+</div>
+					</header>
+					<div class="form-area">
+						<div class="form-holder">
+							<div elqid="3463" elqtype="UserForm" elqformname="IN-designsolutions-0525-3463" elq-edit="edit-form" class=""><form method="post" name="IN-designsolutions-0525-3463" action="https://discover.jll.com/e/f2?LP=1797" onsubmit="return handleFormSubmit(this)" id="form3463" class="elq-form" target="hiddenFrame"><input value="IN-designsolutions-0525-3463" type="hidden" name="elqFormName"><input value="362000045" type="hidden" name="elqSiteId"><input name="elqCampaignId" type="hidden"><div class="layout container-fluid"><div class="row"><div class="grid-layout-col"><div class="layout-col col-sm-6 col-xs-12"><div id="formElement0" class="elq-field-style form-element-layout row"><div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe60870">First name<span class="elq-required">*</span></label></div><div class="col-sm-12 col-xs-12"><div class="row"><div class="col-xs-12"><div class="field-control-wrapper"><input type="text" class="elq-item-input" name="firstName" id="fe60870" value="" style="width:100%;"><span id="firstNameWarning" style="color: red; font-weight: bold; font-size: 12px; display: none;">Numbers and special characters are not allowed in the first name field.</span></div></div></div></div></div></div></div><div class="grid-layout-col"><div class="layout-col col-sm-6 col-xs-12"><div id="formElement1" class="elq-field-style form-element-layout row"><div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe60871">Last name<span class="elq-required">*</span></label></div><div class="col-sm-12 col-xs-12"><div class="row"><div class="col-xs-12"><div class="field-control-wrapper"><input type="text" class="elq-item-input" name="lastName" id="fe60871" value="" style="width:100%;"><span id="lastNameWarning" style="color: red; font-size: 12px; font-weight: bold; display: none;">Numbers and special characters are not allowed in the last name field.</span></div></div></div></div></div></div></div></div><div class="row"><div class="grid-layout-col"><div class="layout-col col-sm-6 col-xs-12"><div id="formElement2" class="elq-field-style form-element-layout row"><div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe60872">Business email address<span class="elq-required">*</span></label></div><div class="col-sm-12 col-xs-12"><div class="row"><div class="col-xs-12"><div class="field-control-wrapper"><input type="text" class="elq-item-input" name="emailAddress" id="fe60872" value="" style="width:100%;"></div></div></div></div></div></div></div><div class="grid-layout-col"><div class="layout-col col-sm-6 col-xs-12"><div id="formElement3" class="elq-field-style form-element-layout row"><div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe60873">Company or organisation<span class="elq-required">*</span></label></div><div class="col-sm-12 col-xs-12"><div class="row"><div class="col-xs-12"><div class="field-control-wrapper"><input type="text" class="elq-item-input" name="company" id="fe60873" value="" style="width:100%;"></div></div></div></div></div></div></div></div><div class="row"><div class="grid-layout-col"><div class="layout-col col-sm-6 col-xs-12"><div id="formElement4" class="elq-field-style form-element-layout row"><div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe60874">Business phone<span class="elq-required">*</span></label></div><div class="col-sm-12 col-xs-12"><div class="row"><div class="col-xs-12"><div class="field-control-wrapper"><input type="text" class="elq-item-input" name="busPhone" id="fe60874" value="" style="width:100%;"><span id="phoneWarning" style="color: red; font-weight: bold; font-size: 12px; display: none;">Enter the valid numbers only</span></div></div></div></div></div></div></div><div class="grid-layout-col"><div class="layout-col col-sm-6 col-xs-12"><div id="formElement5" class="elq-field-style form-element-layout row"><div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe60875">Property type<span class="elq-required">*</span></label></div><div class="col-sm-12 col-xs-12"><div class="row"><div class="col-xs-12"><div class="field-control-wrapper"><select class="elq-item-select" id="fe60875" name="dropdownMenu" style="width:100%;" data-value=""><option value="">Please select</option><option value="Finding the right space">Finding the right space</option><option value="Leased and ready to fit-out">Leased and ready to fit-out</option><option value="Leased and currently occupied">Leased and currently occupied</option></select></div></div></div></div></div></div></div></div><div class="row"><div class="grid-layout-col"><div class="layout-col col-sm-12 col-xs-12"><div id="formElement6" class="elq-field-style form-element-layout row"><div style="text-align:left;" class="col-sm-12 col-xs-12"><label class="elq-label " for="fe60876">What is the area of your work space?<span class="elq-required">*</span></label></div><div class="col-sm-12 col-xs-12"><div class="row"><div class="col-xs-12"><div class="field-control-wrapper"><select class="elq-item-select" id="fe60876" name="dropdownMenu2" style="width:100%;" data-value=""><option value="">Please select</option><option value="Up to 5,000 sq ft">Up to 5,000 sq ft</option><option value="5,000 -10,000 sq ft">5,000 -10,000 sq ft</option><option value="10,000 - 30,000 sq ft">10,000 - 30,000 sq ft</option><option value="30,000 - 50,000 sq ft">30,000 - 50,000 sq ft</option><option value="50,000+ sq ft">50,000+ sq ft</option></select></div></div></div></div></div></div></div></div><div class="row china"><div class="layout-col col-sm-12 col-xs-12"><div class="form-element-layout row"><div class="single-checkbox-row"><input type="checkbox" value="on" name="readAndAgreed" id="readAndAgreed"><label class="checkbox-aligned elq-item-label" for="readAndAgreed">I have read and agreed to Jones Lang LaSalle's <a target="_blank" href="https://app.discover.jll.com/e/er?s=362000045&amp;lid=78002&amp;elqTrackId=c86a60e54633432d829f7c7df944736c&amp;elq=00000000000000000000000000000000&amp;elqaid=1797&amp;elqat=2&amp;elqak=8AF50AB41A7DDC168E339A568D183322A7444E273E4A3D1B99BD63542E9B6A901959">Privacy Statement</a> and <a target="_blank" href="https://app.discover.jll.com/e/er?s=362000045&amp;lid=104320&amp;elqTrackId=8a68d92d2df94456bdffdcb1054ca7cd&amp;elq=00000000000000000000000000000000&amp;elqaid=1797&amp;elqat=2&amp;elqak=8AF5CB335A1F6268226B00316306DDBC36B04E273E4A3D1B99BD63542E9B6A901959">JLL Supplemental Privacy Statement</a> for Individuals in China.</label></div><span class="LV_validation_message LV_invalid">This field is required</span></div></div></div><div class="row china"><div class="layout-col col-sm-12 col-xs-12"><div class="form-element-layout row"><div class="single-checkbox-row"><input type="checkbox" value="on" name="agreedToCrossBorderTransfer" id="agreedToCrossBorderTransfer"><label class="checkbox-aligned elq-item-label" for="agreedToCrossBorderTransfer">I agree to the cross-border transfer of my personal information in accordance with the <a target="_blank" href="https://app.discover.jll.com/e/er?s=362000045&amp;lid=78002&amp;elqTrackId=b0ef7895926d464c93e2cddb071f3118&amp;elq=00000000000000000000000000000000&amp;elqaid=1797&amp;elqat=2&amp;elqak=8AF5C09708839E7D3FCDEF6A9C6C037ED2894E273E4A3D1B99BD63542E9B6A901959">Privacy Statement</a> and <a target="_blank" href="https://app.discover.jll.com/e/er?s=362000045&amp;lid=104320&amp;elqTrackId=33e38f3b4f8c423b818ce789312f72a5&amp;elq=00000000000000000000000000000000&amp;elqaid=1797&amp;elqat=2&amp;elqak=8AF56A3672824BFBBCFD1E20F1A629C27D494E273E4A3D1B99BD63542E9B6A901959">JLL Supplemental Privacy Statement</a> for Individuals in China.</label></div><span class="LV_validation_message LV_invalid">This field is required</span></div></div></div><div class="row"><div class="grid-layout-col"><div class="layout-col col-sm-12 col-xs-12"><div id="formElement7" class="elq-field-style form-element-layout row"><div class="col-sm-12 col-xs-12"><div class="row"><div class="col-xs-12"><div><input type="Submit" class="submit-button-style " value="Submit" id="fe60882"></div></div></div></div></div></div></div></div><input type="hidden" name="utmCampaign" id="fe60861" value="ap-in-en-corp-growth"><input type="hidden" name="utmMedium" id="fe60862" value="paidsearch"><input type="hidden" name="utmSource" id="fe60863" value="google"><input type="hidden" name="utmContent" id="fe60864" value="ap-in-en-corp-growth-planning-search-lg-phrase"><input type="hidden" name="utmTerm" id="fe60865" value="design consulting"><input type="hidden" name="pageTitle" id="fe60886" value=""><input type="hidden" name="pageURL" id="fe60887" value=""><input type="hidden" name="previousPageURL" id="fe60888" value=""><input type="hidden" name="form_name" id="fe60866" value="in-wd-pds-design solutions-0525-othe-3463"><input type="hidden" name="Product_Solution_of_Interest1" id="fe60867" value=""><input type="hidden" name="campaignName" id="fe60868" value=""><input type="hidden" name="SFDCLastCampaignStatus" id="fe60869" value=""><input type="hidden" name="country" id="fe60889" value="IN"><input type="hidden" name="elevateKey" id="fe62792" value="https://JLLCampaignIndia.com"></div></form><script type="text/javascript" src="https://img03.en25.com/i/livevalidation_standalone.compressed.js"></script><script>function handleFormSubmit(ele) { var submitButton = ele.querySelector('input[type=submit]'); var spinner = document.createElement('span'); spinner.setAttribute('class', 'loader'); submitButton.setAttribute('disabled', true); submitButton.style.cursor = 'wait'; submitButton.parentNode.appendChild(spinner); return true; }function resetSubmitButton(e){ var submitButtons = e.target.form.getElementsByClassName('submit-button'); for(var i=0;i<submitButtons.length;i++){  submitButtons[i].disabled = false; }  }function addChangeHandler(elements){  for(var i=0; i<elements.length; i++){   elements[i].addEventListener('change', resetSubmitButton); }  }var form = document.getElementById('form3463'); addChangeHandler(form.getElementsByTagName('input')); addChangeHandler(form.getElementsByTagName('select')); addChangeHandler(form.getElementsByTagName('textarea'));var nodes = document.querySelectorAll('#form3463 input[data-subscription]');  if (nodes) { for (var i = 0, len = nodes.length; i < len; i++) {var status = nodes[i].dataset ? nodes[i].dataset.subscription : nodes[i].getAttribute('data-subscription'); if(status ==='true') {nodes[i].checked = true;}}};var nodes = document.querySelectorAll('#form3463 select[data-value]');   if (nodes) { for (var i = 0; i < nodes.length; i++) { var node = nodes[i]; var selectedValue = node.dataset ? node.dataset.value : node.getAttribute('data-value'); if (selectedValue) { for (var j = 0; j < node.options.length; j++) { if(node.options[j].value === selectedValue) { node.options[j].selected = 'selected';break;}}}}}this.getParentElement = function(list) { return list[list.length-1].parentElement};var dom13 = document.querySelector('#form3463 #fe60870');var fe60870 = new LiveValidation(dom13, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});fe60870.add(Validate.Presence, {failureMessage:"This field is required"});fe60870.add(Validate.Custom, {against: function(value) {return !value.match(/(<([^>]+)>)/ig);}, failureMessage: "Value must not contain any HTML"});var dom14 = document.querySelector('#form3463 #fe60871');var fe60871 = new LiveValidation(dom14, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});fe60871.add(Validate.Presence, {failureMessage:"This field is required"});fe60871.add(Validate.Custom, {against: function(value) {return !value.match(/(<([^>]+)>)/ig);}, failureMessage: "Value must not contain any HTML"});var dom15 = document.querySelector('#form3463 #fe60872');var fe60872 = new LiveValidation(dom15, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});fe60872.add(Validate.Format, {pattern: /(^[A-Z0-9!#\$%&'\*\+\-\/=\?\^_`\{\|\}~][A-Z0-9!#\$%&'\*\+\-\/=\?\^_`\{\|\}~\.]{0,62}@(([A-Z0-9](?:[A-Z0-9\-]{0,61}[A-Z0-9])?)(\.[A-Z0-9](?:[A-Z0-9\-]{0,61}[A-Z0-9])?)+)$)/i, failureMessage: "A valid email address is required"});fe60872.add(Validate.Format, {pattern: /\.\.|\.@/i, failureMessage: "A valid email address is required", negate: "true"});fe60872.add(Validate.Presence, {failureMessage:"This field is required"});var dom16 = document.querySelector('#form3463 #fe60873');var fe60873 = new LiveValidation(dom16, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});fe60873.add(Validate.Presence, {failureMessage:"This field is required"});var dom17 = document.querySelector('#form3463 #fe60874');var fe60874 = new LiveValidation(dom17, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});fe60874.add(Validate.Presence, {failureMessage:"This field is required"});var dom18 = document.querySelector('#form3463 #fe60875');var fe60875 = new LiveValidation(dom18, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});fe60875.add(Validate.Presence, {failureMessage:"This field is required"});var dom19 = document.querySelector('#form3463 #fe60876');var fe60876 = new LiveValidation(dom19, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});fe60876.add(Validate.Presence, {failureMessage:"This field is required"});</script></div>
+						</div>
+						<div id="ed-lbl">
+							<h5>Localised translation of <b>custom Opt-In message for Germany</b></h5>
+							<div id="goi" elq-edit="true" class="">Yes, I would like to subscribe to newsletters and other information from JLL.</div>
+
+							<h5>Fixed label for Chinese contacts (Personal Information Protection Law) - 1<sup>st</sup> checkbox - Privacy statement</h5>
+							<div id="ag1" elq-edit="true" class="">I have read and agreed to Jones Lang LaSalle's <a target="_blank" href="https://app.discover.jll.com/e/er?s=362000045&amp;lid=78002&amp;elqTrackId=c86a60e54633432d829f7c7df944736c&amp;elq=00000000000000000000000000000000&amp;elqaid=1797&amp;elqat=2&amp;elqak=8AF50AB41A7DDC168E339A568D183322A7444E273E4A3D1B99BD63542E9B6A901959">Privacy Statement</a> and <a target="_blank" href="https://app.discover.jll.com/e/er?s=362000045&amp;lid=104320&amp;elqTrackId=8a68d92d2df94456bdffdcb1054ca7cd&amp;elq=00000000000000000000000000000000&amp;elqaid=1797&amp;elqat=2&amp;elqak=8AF5CB335A1F6268226B00316306DDBC36B04E273E4A3D1B99BD63542E9B6A901959">JLL Supplemental Privacy Statement</a> for Individuals in China.</div>
+
+							<h5>Fixed label for Chinese contacts (Personal Information Protection Law) - 2<sup>nd</sup> checkbox - Cross-border transfer</h5>
+							<div id="ag2" elq-edit="true" class="">I agree to the cross-border transfer of my personal information in accordance with the <a target="_blank" href="https://app.discover.jll.com/e/er?s=362000045&amp;lid=78002&amp;elqTrackId=b0ef7895926d464c93e2cddb071f3118&amp;elq=00000000000000000000000000000000&amp;elqaid=1797&amp;elqat=2&amp;elqak=8AF5C09708839E7D3FCDEF6A9C6C037ED2894E273E4A3D1B99BD63542E9B6A901959">Privacy Statement</a> and <a target="_blank" href="https://app.discover.jll.com/e/er?s=362000045&amp;lid=104320&amp;elqTrackId=33e38f3b4f8c423b818ce789312f72a5&amp;elq=00000000000000000000000000000000&amp;elqaid=1797&amp;elqat=2&amp;elqak=8AF56A3672824BFBBCFD1E20F1A629C27D494E273E4A3D1B99BD63542E9B6A901959">JLL Supplemental Privacy Statement</a> for Individuals in China.</div>
+						</div>
+						<div class="notice" elq-edit="true">
+							<h5>PRIVACY NOTICE</h5>
+							<p>Jones Lang LaSalle (JLL), together with its subsidiaries and affiliates, is a leading global provider of real estate and investment management services.   We take our responsibility to protect the personal information provided to us seriously.</p>
+							<p>Generally the personal information we collect from you are for the purposes of dealing with your enquiry.</p>
+							<p>We endeavor to keep your personal information secure with appropriate level of security and keep for as long as we need it for legitimate business or legal reasons. We will then delete it safely and securely. For more information about how JLL processes your personal data, please view our privacy statement.</p>
+						</div>
+					</div>
+				</div>
+				<div id="form-step-2" style="display: none;">
+					<header class="header">
+						<h2 elq-edit="true" id="c-form-header_2" class=""><strong>Thanks for your message</strong></h2>
+						<div elq-edit="true" elq-delete="true" class=""><p>Thank you for getting in touch. We'll get back to you shortly.</p>
+</div>
+					</header>
+				</div>
+			</div>
+		</section>
+	</main>
+
+  <!-- footer -->
+    <!-- Advanced Footer Start -->
+    <footer class="custom-footer" style="background: var(--nav-bg); color: var(--text-color); padding: 3rem 0 0 0; border-top: 1.5px solid var(--border-color); box-shadow: 0 -2px 24px var(--shadow-color);">
+        <div class="footer-container" style="max-width:1200px;margin: 140px;display:flex;flex-wrap:wrap;gap:2.5rem 3rem;justify-content:space-between;">
+            <!-- Office Info -->
+            <div class="footer-col" style="flex:1 1 220px;min-width:220px;">
+                <h5 style="color:var(--primary-color);font-size:1.15rem;margin-bottom:1.1rem;font-weight:700;letter-spacing:0.03em;">Our Office</h5>
+                <p style="margin-bottom:0.7rem;"><svg style="vertical-align:middle;color:var(--primary-color);" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg> 123 Street, New York, USA</p>
+                <p style="margin-bottom:0.7rem;"><svg style="vertical-align:middle;color:var(--primary-color);" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.21 1.11l-2.2 2.2z"/></svg> +012 345 67890</p>
+                <p style="margin-bottom:1.1rem;"><svg style="vertical-align:middle;color:var(--primary-color);" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> info@example.com</p>
+                <div style="display:flex;gap:0.5rem;">
+                    <a href="#" aria-label="Twitter" style="background:var(--primary-color);color:#fff;border-radius:50%;padding:0.5rem;display:inline-flex;align-items:center;justify-content:center;transition:background 0.2s;"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.47.69a4.3 4.3 0 001.88-2.37 8.59 8.59 0 01-2.72 1.04A4.28 4.28 0 0016.11 4c-2.37 0-4.29 1.92-4.29 4.29 0 .34.04.67.11.99C7.69 9.13 4.07 7.38 1.64 4.77c-.37.64-.58 1.39-.58 2.19 0 1.51.77 2.84 1.95 3.62-.72-.02-1.4-.22-1.99-.55v.06c0 2.11 1.5 3.87 3.5 4.27-.37.1-.76.16-1.16.16-.28 0-.55-.03-.81-.08.55 1.72 2.16 2.97 4.07 3a8.6 8.6 0 01-5.32 1.84c-.35 0-.7-.02-1.04-.06A12.13 12.13 0 006.29 21c7.55 0 11.68-6.26 11.68-11.68 0-.18-.01-.36-.02-.54A8.36 8.36 0 0024 4.59a8.2 8.2 0 01-2.36.65 4.28 4.28 0 001.88-2.37z"/></svg></a>
+                    <a href="#" aria-label="Facebook" style="background:var(--primary-color);color:#fff;border-radius:50%;padding:0.5rem;display:inline-flex;align-items:center;justify-content:center;transition:background 0.2s;"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.326 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg></a>
+                    <a href="#" aria-label="YouTube" style="background:var(--primary-color);color:#fff;border-radius:50%;padding:0.5rem;display:inline-flex;align-items:center;justify-content:center;transition:background 0.2s;"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.994 2.994 0 00-2.107-2.117C19.163 3.5 12 3.5 12 3.5s-7.163 0-9.391.569A2.994 2.994 0 00.502 6.186C0 8.413 0 12 0 12s0 3.587.502 5.814a2.994 2.994 0 002.107 2.117C4.837 20.5 12 20.5 12 20.5s7.163 0 9.391-.569a2.994 2.994 0 002.107-2.117C24 15.587 24 12 24 12s0-3.587-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                    <a href="#" aria-label="LinkedIn" style="background:var(--primary-color);color:#fff;border-radius:50%;padding:0.5rem;display:inline-flex;align-items:center;justify-content:center;transition:background 0.2s;"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 10.268h-3v-4.604c0-1.096-.021-2.507-1.528-2.507-1.529 0-1.764 1.195-1.764 2.428v4.683h-3v-9h2.881v1.229h.041c.401-.761 1.379-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.601v4.733z"/></svg></a>
+                </div>
+            </div>
+            <!-- Quick Links -->
+            <div class="footer-col" style="flex:1 1 180px;min-width:180px;">
+                <h5 style="color:var(--primary-color);font-size:1.15rem;margin-bottom:1.1rem;font-weight:700;letter-spacing:0.03em;">Quick Links</h5>
+                <nav style="display:flex;flex-direction:column;gap:0.5rem;">
+                    <a href="About copy.html" style="color:var(--text-color);text-decoration:none;transition:color 0.2s;font-weight:500;">About Us</a>
+                    <a href="Contact.html" style="color:var(--text-color);text-decoration:none;transition:color 0.2s;font-weight:500;">Contact Us</a>
+                    <a href="Service.html" style="color:var(--text-color);text-decoration:none;transition:color 0.2s;font-weight:500;">Our Services</a>
+                    <a href="#" style="color:var(--text-color);text-decoration:none;transition:color 0.2s;font-weight:500;">Terms &amp; Condition</a>
+                    <a href="Support.html" style="color:var(--text-color);text-decoration:none;transition:color 0.2s;font-weight:500;">Support</a>
+                </nav>
+            </div>
+            <!-- Business Hours -->
+            <div class="footer-col" style="flex:1 1 180px;min-width:180px;">
+                <h5 style="color:var(--primary-color);font-size:1.15rem;margin-bottom:1.1rem;font-weight:700;letter-spacing:0.03em;">Business Hours</h5>
+                <div style="font-size:0.97rem;">
+                    <div style="margin-bottom:0.4rem;"><span style="font-weight:600;">Monday - Friday:</span> <span style="color:var(--text-description);">09:00 am - 07:00 pm</span></div>
+                    <div style="margin-bottom:0.4rem;"><span style="font-weight:600;">Saturday:</span> <span style="color:var(--text-description);">09:00 am - 12:00 pm</span></div>
+                    <div><span style="font-weight:600;">Sunday:</span> <span style="color:var(--text-description);">Closed</span></div>
+                </div>
+            </div>
+            <!-- Gallery -->
+            <div class="footer-col" style="flex:1 1 220px;min-width:180px;">
+                <h5 style="color:var(--primary-color);font-size:1.15rem;margin-bottom:1.1rem;font-weight:700;letter-spacing:0.03em;">Gallery</h5>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.3rem;">
+                    <img src="E1.jpg" alt="Gallery 1" style="width:100%;border-radius:8px;object-fit:cover;">
+                    <img src="E5.jpg" alt="Gallery 2" style="width:100%;border-radius:8px;object-fit:cover; height: 140px;">
+                    <img src="F3.jpg" alt="Gallery 3" style="width:100%;border-radius:8px;object-fit:cover;height: 140px;">
+                    <img src="E7.jpg" alt="Gallery 4" style="width:100%;border-radius:8px;object-fit:cover;height: 140px;">
+                    <img src="E8.jpg" alt="Gallery 5" style="width:100%;border-radius:8px;object-fit:cover;height: 140px;">
+                    <img src="F1.jpg" alt="Gallery 6" style="width:100%;border-radius:8px;object-fit:cover;height: 140px;">
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom" style="margin-top:2.5rem;padding:1.2rem 0 0.5rem 0;border-top:1px solid var(--border-color);font-size:0.98rem;">
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;max-width:1200px;margin:auto;">
+                <div style="margin-bottom:0.7rem;">
+                    &copy; <a href="#" style="color:var(--primary-color);font-weight:600;text-decoration:none;">NANCY SMK LTD</a>, All Rights Reserved.
+                </div>
+                <div>
+                    Designed by <a href="https://htmlcodex.com" style="color:var(--primary-color);font-weight:600;text-decoration:none;">HTML Codex</a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="back-to-top-btn" aria-label="Back to top" style="position:fixed;right:2vw;bottom:2vw;z-index:999;background:var(--primary-color);color:#fff;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;box-shadow:0 2px 12px var(--primary-glow);font-size:1.3rem;transition:background 0.2s,transform 0.2s;opacity:0;pointer-events:none;">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
+        </a>
+    </footer>
+    <style>
+    @media (max-width: 900px) {
+        .footer-container { flex-direction: column; gap:2rem 0; }
+        .footer-col { min-width:0; }
+    }
+    .back-to-top-btn.show { opacity:1 !important; pointer-events:auto !important; transform:scale(1.08);}
+    .back-to-top-btn { opacity:0; pointer-events:none; transition:opacity 0.3s,transform 0.2s;}
+    .back-to-top-btn:active { transform:scale(0.93);}
+    .back-to-top-btn:hover { background:var(--secondary-color);}
+    </style>
+    <script>
+    // Back to top button logic
+    (function(){
+        const btn = document.querySelector('.back-to-top-btn');
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 200) {
+                btn.classList.add('show');
+            } else {
+                btn.classList.remove('show');
+            }
+        });
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+            window.scrollTo({top:0,behavior:'smooth'});
+        });
+    })();
+    </script>
+    <!-- Advanced Footer End -->
+
+    <!--  -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Element selectors
+        const navbar = document.querySelector('.navbar');
+        const navToggle = document.querySelector('.nav-toggle');
+        const dropdowns = document.querySelectorAll('.has-dropdown');
+        const themeToggle = document.querySelector('.theme-toggle');
+        const searchInput = document.querySelector('.search-input');
+        const searchBtn = document.querySelector('.search-btn');
+        const moonIcon = document.querySelector('.moon-icon');
+        const sunIcon = document.querySelector('.sun-icon');
+        let isDark = true;
+
+        // Utility: Debounce
+        function debounce(fn, delay = 200) {
+            let timer;
+            return (...args) => {
+                clearTimeout(timer);
+                timer = setTimeout(() => fn.apply(this, args), delay);
+            };
+        }
+
+        // Mobile menu toggle
+        navToggle?.addEventListener('click', e => {
+            e.stopPropagation();
+            navbar.classList.toggle('nav-active');
+            document.body.style.overflow = navbar.classList.contains('nav-active') ? 'hidden' : '';
+        });
+
+        // Close mobile menu on outside click
+        document.addEventListener('click', e => {
+            if (!navbar.contains(e.target) && navbar.classList.contains('nav-active')) {
+                navbar.classList.remove('nav-active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Dropdowns (mobile)
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('.nav-link');
+            link?.addEventListener('click', e => {
+                if (window.innerWidth <= 968) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                    dropdowns.forEach(other => {
+                        if (other !== dropdown) other.classList.remove('active');
+                    });
+                }
+            });
+        });
+
+        // Theme toggle
+        themeToggle?.addEventListener('click', () => {
+            isDark = !isDark;
+            setTheme(isDark);
+        });
+
+        function setTheme(dark) {
+            const root = document.documentElement;
+            if (dark) {
+                root.style.setProperty('--bg-color', '#0a0a12');
+                root.style.setProperty('--text-color', '#ffffff');
+                root.style.setProperty('--nav-bg', 'rgba(16, 16, 26, 0.7)');
+                root.style.setProperty('--dropdown-bg', 'rgba(20, 20, 35, 0.8)');
+                root.style.setProperty('--gradient-bg', 'linear-gradient(135deg, #0a0a12, #151530)');
+                root.style.setProperty('--border-color', 'rgba(255, 255, 255, 0.08)');
+                root.style.setProperty('--text-description', 'rgba(255, 255, 255, 0.7)');
+                moonIcon?.classList.remove('hidden');
+                sunIcon?.classList.add('hidden');
+            } else {
+                root.style.setProperty('--bg-color', '#ffffff');
+                root.style.setProperty('--text-color', '#0a0a12');
+                root.style.setProperty('--nav-bg', 'rgba(255, 255, 255, 0.8)');
+                root.style.setProperty('--dropdown-bg', 'rgba(240, 240, 255, 0.9)');
+                root.style.setProperty('--gradient-bg', 'linear-gradient(135deg, #ffffff, #f0f4ff)');
+                root.style.setProperty('--border-color', 'rgba(0, 0, 0, 0.08)');
+                root.style.setProperty('--text-description', 'rgba(0, 0, 0, 0.7)');
+                moonIcon?.classList.add('hidden');
+                sunIcon?.classList.remove('hidden');
+            }
+            document.body.classList.add('theme-transition');
+            setTimeout(() => document.body.classList.remove('theme-transition'), 600);
+        }
+
+        // Search functionality (with debounce)
+        function performSearch(query) {
+            // Replace with real search logic or API call
+            console.log('Searching for:', query);
+            searchBtn?.classList.add('search-active');
+            setTimeout(() => searchBtn?.classList.remove('search-active'), 300);
+        }
+
+        searchBtn?.addEventListener('click', e => {
+            e.preventDefault();
+            const query = searchInput.value.trim();
+            if (query) performSearch(query);
+        });
+
+        searchInput?.addEventListener('keypress', e => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const query = searchInput.value.trim();
+                if (query) performSearch(query);
+            }
+        });
+
+        searchInput?.addEventListener('input', debounce(e => {
+            // For live suggestions, implement here
+            // Example: showSuggestions(e.target.value);
+        }, 250));
+
+        searchInput?.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('search-focused');
+        });
+        searchInput?.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('search-focused');
+        });
+
+        // Responsive: close nav on resize
+        window.addEventListener('resize', debounce(() => {
+            if (window.innerWidth > 968) {
+                navbar.classList.remove('nav-active');
+                dropdowns.forEach(d => d.classList.remove('active'));
+                document.body.style.overflow = '';
+            }
+        }, 150));
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Inject extra CSS for animations and effects
+        if (!document.getElementById('nav-advanced-style')) {
+            const style = document.createElement('style');
+            style.id = 'nav-advanced-style';
+            style.textContent = `
+                @keyframes slideDown {
+                    from { opacity: 0; transform: translateY(-10px);}
+                    to { opacity: 1; transform: translateY(0);}
+                }
+                @keyframes slideUp {
+                    from { opacity: 1; transform: translateY(0);}
+                    to { opacity: 0; transform: translateY(-10px);}
+                }
+                .search-focused {
+                    box-shadow: 0 0 0 3px var(--primary-glow) !important;
+                }
+                .search-active {
+                    animation: pulse 0.3s ease;
+                }
+                @keyframes pulse {
+                    0% { transform: scale(1);}
+                    50% { transform: scale(1.2);}
+                    100% { transform: scale(1);}
+                }
+                .theme-transition {
+                    transition: background 0.5s, color 0.5s;
+                }
+                .scrolled {
+                    padding: 0.7rem 2rem;
+                    background: var(--nav-bg);
+                    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+                }
+                @media (max-width: 576px) {
+                    .scrolled { padding: 0.7rem 1rem; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Accessibility: close nav with Escape key
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                navbar.classList.remove('nav-active');
+                dropdowns.forEach(d => d.classList.remove('active'));
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Initial theme
+        setTheme(isDark);
+    });
+    </script>
+</body>
+</html>
